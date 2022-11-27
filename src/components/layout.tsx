@@ -18,9 +18,9 @@ export const Layout: React.FC<IProps> = ({
   /***************     JSX     ***************/
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <StatusBar barStyle="light-content" />
-      <Stack flex={1} space={3} margin={3} {...rest}>
+      <Stack flex={1} space={3} margin={3} {...rest} justifyContent="center">
         {children}
       </Stack>
     </SafeAreaView>
