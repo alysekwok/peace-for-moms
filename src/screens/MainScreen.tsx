@@ -11,6 +11,7 @@ export const MainScreen = () => {
     "Has there ever been a period of time in your life when you were not your usual self and you felt much more self-confident than usual?",
   ];
   const [qNumber, setQNumber] = useState(1);
+  const [pressed, setPressed] = useState([-1, -1, -1])
   const database = getDatabase(app, app.options.databaseURL);
   const reference = ref(database, "question/b" + qNumber);
   const text = questions[qNumber - 1];
@@ -25,27 +26,34 @@ export const MainScreen = () => {
   }, [reference]);
   const onYes = () => {
     set(reference, "yes");
+    if (qNumber == 1) {
+        setPressed([1, pressed[1], pressed[2]])
+    } else if (qNumber == 2) {
+        setPressed([pressed[0], 1, pressed[2]]);
+    } else {
+        setPressed([pressed[0], pressed[1], 1]);
+    }
   };
   const onNo = () => {
     set(reference, "no");
+    if (qNumber == 1) {
+      setPressed([0, pressed[1], pressed[2]]);
+    } else if (qNumber == 2) {
+      setPressed([pressed[0], 0, pressed[2]]);
+    } else {
+      setPressed([pressed[0], pressed[1], 0]);
+    }
   };
+  console.log(pressed[qNumber - 1]);
   return (
     <Layout>
       <Text padding={3} color="black">
-        {text}
+        {`B${qNumber}. ${text}`}
       </Text>
-      <Button
-        padding={3}
-        onPress={onYes}
-        isPressed={currentValue.endsWith("yes")}
-      >
+      <Button padding={3} onPress={onYes} isPressed={pressed[qNumber - 1] == 1}>
         YES
       </Button>
-      <Button
-        padding={3}
-        onPress={onNo}
-        isPressed={currentValue.endsWith("no")}
-      >
+      <Button padding={3} onPress={onNo} isPressed={pressed[qNumber - 1] == 0}>
         NO
       </Button>
       <HStack space={3} justifyContent="center">
