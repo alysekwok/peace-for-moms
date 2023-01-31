@@ -1,20 +1,21 @@
 # PEACE for Moms Mobile Application
 A mobile application that helps healthcare professionals treat perinatal patients with ease. PEACE for Moms is a service that connects Georgia healthcare professionals with pyschiatrics who specialize in perinatal mental health. This a project in collaboration with Emory University School of Medicine, and our client for this project is Dr. Rebecca Woo. Learn more about this service on their website: https://www.peace4momsga.org/
 
-# Release Notes
+## Release Notes
 
-## Release v0.1.0
-### Features
+### Release v0.1.0
+#### Features
 - A page to create an account with Peace for Moms 
 - A page to Log into an existing account with Peace for Moms 
 - A page to recover an account if a user forgets their password 
 
-### Bug Fixes
-No known bugs were fixed as this is the first release.
-### Known Issues
+#### Bug Fixes
+- Scrolling on pages glitches when it reaches the top
+
+#### Known Issues
 - No navigation after user is correctly logged in 
 - No functionality for recover account
-- Scrolling on pages glitches when it reaches the top
+
 
 
 
@@ -24,7 +25,7 @@ No known bugs were fixed as this is the first release.
 For Mac:
 
 Official documentation: https://reactnative.dev/docs/environment-setup
-- Note: not everything on the documentation is necessary. Other team members primarly use yarn and npm for this project
+- Note: not everything on the documentation is necessary. Other team members primarily use yarn and npm for this project
 
 Install Homebrew: https://brew.sh/
 
