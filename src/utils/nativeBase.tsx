@@ -7,41 +7,58 @@ const secondary = {};
 const tertiary = {};
 
 export const theme = extendTheme({
-  colors: { primary, secondary, tertiary },
+  colors: {
+    primary: {
+      50: "#efe8fc",
+      100: "#cebbf7",
+      200: "#ad8df1",
+      300: "#8d5fec",
+      400: "#6c32e7",
+      500: "#5218cd",
+      600: "#4013a0",
+      700: "#2e0e72",
+      800: "#1b0844",
+      900: "#090317",
+    },
+    secondary,
+    tertiary,
+  },
   config: {},
   components: {
     Card: {
       defaultProps: {
-        backgroundColor: "gray.900",
+        backgroundColor: "gray.200",
       },
     },
     Heading: {
       defaultProps: {
-        color: "white",
+        color: "black",
       },
     },
     Text: {
       defaultProps: {
-        color: "white",
+        color: "black",
       },
     },
     Input: {
       baseStyle: {
-        keyboardAppearance: "dark",
+        keyboardAppearance: "default",
+        backgroundColor: "gray.100",
+        borderColor: "gray.300",
       },
     },
     Button: {
       baseStyle: {
-        borderRadius: "md",
-        paddingBottom: 2,
-        paddingTop: 2,
-        paddingLeft: 4,
-        paddingRight: 4,
+        borderRadius: 50,
+        paddingBottom: 4,
+        paddingTop: 4,
+        paddingLeft: 8,
+        paddingRight: 8,
       },
       variants: {
         solid: () => ({
-          backgroundColor: "primary.600",
-          _pressed: { backgroundColor: "primary.900" },
+          backgroundColor: "primary.400",
+          _pressed: { backgroundColor: "primary.500" },
         }),
         ghost: () => ({
           _pressed: { backgroundColor: "gray.800" },

@@ -1,7 +1,7 @@
 import { get, getDatabase, ref, set } from "@firebase/database";
-import { Button, VStack, Text, HStack } from "native-base";
+import { Button, Text, HStack } from "native-base";
 import React, { useMemo, useState } from "react";
-import { Layout } from "../components/layout";
+import { Layout } from "../components/Layout";
 import { app } from "../firebase/config";
 
 export const MainScreen = () => {
@@ -11,7 +11,7 @@ export const MainScreen = () => {
     "Has there ever been a period of time in your life when you were not your usual self and you felt much more self-confident than usual?",
   ];
   const [qNumber, setQNumber] = useState(1);
-  const [pressed, setPressed] = useState([-1, -1, -1])
+  const [pressed, setPressed] = useState([-1, -1, -1]);
   const database = getDatabase(app, app.options.databaseURL);
   const reference = ref(database, "question/b" + qNumber);
   const text = questions[qNumber - 1];
@@ -27,11 +27,11 @@ export const MainScreen = () => {
   const onYes = () => {
     set(reference, "yes");
     if (qNumber == 1) {
-        setPressed([1, pressed[1], pressed[2]])
+      setPressed([1, pressed[1], pressed[2]]);
     } else if (qNumber == 2) {
-        setPressed([pressed[0], 1, pressed[2]]);
+      setPressed([pressed[0], 1, pressed[2]]);
     } else {
-        setPressed([pressed[0], pressed[1], 1]);
+      setPressed([pressed[0], pressed[1], 1]);
     }
   };
   const onNo = () => {
