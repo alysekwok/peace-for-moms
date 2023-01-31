@@ -5,11 +5,16 @@ A mobile application that helps healthcare professionals treat perinatal patient
 
 ## Release v0.1.0
 ### Features
-This release features a login screen, registration screen, and a recover account screen. All screens are connected to the database and include user authentication.
+- A page to create an account with Peace for Moms 
+- A page to Log into an existing account with Peace for Moms 
+- A page to recover an account if a user forgets their password 
+
 ### Bug Fixes
 No known bugs were fixed as this is the first release.
 ### Known Issues
-tbd
+- No navigation after user is correctly logged in 
+- No functionality for recover account
+- Scrolling on pages glitches when it reaches the top
 
 
 

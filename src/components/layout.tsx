@@ -1,4 +1,5 @@
 import { useTheme, Stack, IStackProps, StatusBar } from "native-base";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import React from "react";
 import { SafeAreaView } from "react-native";
 
@@ -17,12 +18,15 @@ export const Layout: React.FC<IProps> = ({
 
   /***************     JSX     ***************/
 
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-      <StatusBar barStyle="light-content" />
-      <Stack flex={1} space={3} margin={3} {...rest} justifyContent="center">
-        {children}
-      </Stack>
-    </SafeAreaView>
+    <KeyboardAwareScrollView>
+      <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+        <StatusBar barStyle="light-content" />
+        <Stack flex={1} space={3} margin={3} {...rest} justifyContent="center">
+          {children}
+        </Stack>
+      </SafeAreaView>
+    </KeyboardAwareScrollView>
   );
 };
