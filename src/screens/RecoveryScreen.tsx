@@ -42,7 +42,7 @@ export const RecoveryScreen = () => {
             </Button>
           </HStack>
           <Input placeholder="Email" />
-          <Button>Send Recovery Link</Button>
+          <Button>Send Recovery Email</Button>
         </VStack>
       </Card>
     </Layout>
