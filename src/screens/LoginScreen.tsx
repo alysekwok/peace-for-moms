@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Layout } from "../components/Layout";
-import { Button, Card, Heading, Image, Input, Text, VStack } from "native-base";
+import {
+  Box,
+  Button,
+  Card,
+  Heading,
+  Image,
+  Input,
+  Text,
+  VStack,
+} from "native-base";
 import { auth } from "../firebase/config";
 import { useNavigation } from "@react-navigation/native";
 import { useAppDispatch } from "../store";
@@ -41,10 +50,11 @@ export const LoginScreen = () => {
         maxWidth={200}
         alt="P4M Logo"
       />
-      <Heading textAlign="center">
-        Welcome to the PEACE for Moms Toolkit App
-      </Heading>
-
+      <VStack>
+        <Heading textAlign="center">
+          Welcome to the PEACE for Moms Toolkit App
+        </Heading>
+      </VStack>
       <Card>
         <VStack space={3}>
           <Text color="gray.600">Log in or register to continue</Text>
