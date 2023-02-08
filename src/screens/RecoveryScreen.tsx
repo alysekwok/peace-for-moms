@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import firebase from "firebase/compat";
 import { Layout } from "../components/Layout";
+import { auth } from "../firebase/config";
 import { Button, Card, Image, Input, Text, HStack, VStack } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -8,11 +10,29 @@ import { UnauthRouterParams } from "../routers/UnauthRouter";
 export const RecoveryScreen = () => {
   /***************		HOOKS		***************/
 
+  const [email, setEmail] = useState("");
+  const [errorCode, setErrorCode] = useState("");
   const image = require("../images/p4m_logo.png");
   const { navigate } =
     useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
 
+  /***************		FUNCTIONS		***************/
+
+    const handleEmailChange = (newEmail) => {
+      setEmail(newEmail);
+      setErrorCode("");
+    };
+
+    const handleSendEmail = () => {
+      auth
+        .sendPasswordResetEmail(email)
+        .then(() => {
+        })
+        .catch((error) => alert(error.message));
+    }
+
   /***************		JSX		***************/
+
 
   return (
     <Layout>
@@ -41,8 +61,12 @@ export const RecoveryScreen = () => {
               Back
             </Button>
           </HStack>
-          <Input placeholder="Email" />
-          <Button>Send Recovery Email</Button>
+          <Input
+             placeholder="Email"
+             value = {email}
+             onChangeText={(text) => handleEmailChange(text)}
+           />
+           <Button onPress={handleSendEmail}> Send Recovery Link</Button>
         </VStack>
       </Card>
     </Layout>
