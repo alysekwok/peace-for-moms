@@ -36,8 +36,22 @@ export const theme = extendTheme({
       },
     },
     Text: {
-      defaultProps: {
-        color: "black",
+      variants: {
+        blurb: () => ({
+          color:"black",
+          fontSize:"sm"
+        }),
+        contrastBody: () => ({
+          color:"white",
+          fontSize:"sm",
+          textAlign:"center",
+        }),
+        contrastSubHeading: () => ({
+          color:"white",
+          fontSize:"md",
+          textAlign:"center",
+        })
+
       },
     },
     Input: {
