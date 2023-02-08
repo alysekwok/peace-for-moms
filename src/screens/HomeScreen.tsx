@@ -56,7 +56,7 @@ export const HomeScreen = () => {
           </TouchableOpacity>
         </VStack>
         <VStack>
-          <TouchableOpacity onPress={() => navigate("Emergency")}>
+          <TouchableOpacity onPress={() => navigate("Tutorial")}>
             <Image
               source={logo2}
               maxHeight={50}
