@@ -6,5 +6,6 @@ import { useAppSelector } from "./store";
 export const MainApp = () => {
   const { isAuthenticated } = useAppSelector((state) => state.Auth);
 
-  return isAuthenticated ? <MainRouter /> : <UnauthRouter />;
+   return isAuthenticated ? <MainRouter /> : <UnauthRouter />;
+    
 };
