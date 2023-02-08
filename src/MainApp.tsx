@@ -5,11 +5,7 @@ import { useAppSelector } from "./store";
 import {EmergencyScreen} from "./screens/EmergencyScreen"
 
 export const MainApp = () => {
-  // const { isAuthenticated } = useAppSelector((state) => state.Auth);
+  const { isAuthenticated } = useAppSelector((state) => state.Auth);
 
-  // return isAuthenticated ? <MainRouter /> : <UnauthRouter />;
-  return (<EmergencyScreen />);
-    
-  
-
+  return isAuthenticated ? <MainRouter /> : <UnauthRouter />;
 };
