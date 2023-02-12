@@ -10,14 +10,11 @@ import { TutorialScreen } from "../screens/TutorialScreen";
 
 export type UnauthRouterParams = {
   Login: undefined;
-  Home: undefined;
   Register: undefined;
   Recovery: undefined;
-  Emergency: undefined;
-  Tutorial: undefined;
 };
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<UnauthRouterParams>();
 
 export const UnauthRouter = () => {
   return (
@@ -25,9 +22,6 @@ export const UnauthRouter = () => {
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Recovery" component={RecoveryScreen} />
-      <Stack.Screen name="Emergency" component={EmergencyScreen} />
-      <Stack.Screen name="Tutorial" component={TutorialScreen} />
-      <Stack.Screen name="Home" component={HomeScreen} />
     </Stack.Navigator>
   );
 };

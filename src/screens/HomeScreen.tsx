@@ -19,6 +19,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { UnauthRouterParams } from "../routers/UnauthRouter";
 import { TouchableOpacity } from "react-native";
+import { MainRouterParams } from "../routers/MainRouter";
 
 export const HomeScreen = () => {
   /***************		HOOKS		***************/
@@ -28,7 +29,7 @@ export const HomeScreen = () => {
   const logo1 = require("../images/back_logo.png");
   const logo2 = require("../images/tutorial_logo.png");
   const { navigate } =
-    useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
+    useNavigation<NativeStackNavigationProp<MainRouterParams>>();
 
   /***************		FUNCTIONS		***************/
 
@@ -76,7 +77,7 @@ export const HomeScreen = () => {
       <Card>
         <VStack space={3}>
           <Button>New Diagnosis</Button>
-          <Button>Contact Us</Button>
+          <Button onPress={() => navigate("Emergency")}>Contact Us</Button>
         </VStack>
       </Card>
       <Stack paddingTop={0}>
