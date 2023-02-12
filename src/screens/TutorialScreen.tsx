@@ -18,9 +18,6 @@ import { MainRouterParams } from "../routers/MainRouter";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export const TutorialScreen = () => {
-  const logo = require("../images/p4m-back-arrow.png");
-  const { navigate, goBack } =
-    useNavigation<NativeStackNavigationProp<MainRouterParams>>();
 
   /***************		JSX		***************/
 
