@@ -6,7 +6,6 @@ import { TabRouter, TabRouterParams } from "./TabRouter";
 import { NavigatorScreenParams } from "@react-navigation/native";
 import { Header } from "../components/Header";
 import { BackButton } from "../components/BackButton";
-import { Box } from "native-base";
 
 export type MainRouterParams = {
   TabRouter: NavigatorScreenParams<TabRouterParams>;
