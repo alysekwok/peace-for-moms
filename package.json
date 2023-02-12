@@ -21,6 +21,7 @@
     "@types/react-native": "~0.70.6",
     "expo": "~47.0.6",
     "expo-status-bar": "~1.4.2",
+    "expo-updates": "~0.15.6",
     "firebase": "^9.16.0",
     "firebase-tools": "^11.16.1",
     "native-base": "^3.4.25",

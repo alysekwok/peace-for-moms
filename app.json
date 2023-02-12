@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "p4m",
+    "owner": "p4m",
     "slug": "p4m",
     "version": "1.0.0",
     "orientation": "portrait",

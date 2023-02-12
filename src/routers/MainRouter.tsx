@@ -4,6 +4,9 @@ import { TutorialScreen } from "../screens/TutorialScreen";
 import { EmergencyScreen } from "../screens/EmergencyScreen";
 import { TabRouter, TabRouterParams } from "./TabRouter";
 import { NavigatorScreenParams } from "@react-navigation/native";
+import { Header } from "../components/Header";
+import { Icon } from "native-base";
+import { BackButton } from "../components/BackButton";
 
 export type MainRouterParams = {
   TabRouter: NavigatorScreenParams<TabRouterParams>;
@@ -19,9 +22,16 @@ export const MainRouter = () => {
   return (
     <Stack.Navigator
       initialRouteName="TabRouter"
-      screenOptions={{ headerShown: false }}
+      screenOptions={{
+        headerTitle: () => <Header />,
+        headerLeft: () => <BackButton />,
+      }}
     >
-      <Stack.Screen name="TabRouter" component={TabRouter} />
+      <Stack.Screen
+        name="TabRouter"
+        component={TabRouter}
+        options={{ headerLeft: null }}
+      />
       <Stack.Screen name="Tutorial" component={TutorialScreen} />
       <Stack.Screen name="Emergency" component={EmergencyScreen} />
     </Stack.Navigator>
