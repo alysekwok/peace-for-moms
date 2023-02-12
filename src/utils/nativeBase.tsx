@@ -38,20 +38,19 @@ export const theme = extendTheme({
     Text: {
       variants: {
         blurb: () => ({
-          color:"black",
-          fontSize:"sm"
+          color: "black",
+          fontSize: "sm",
         }),
         contrastBody: () => ({
-          color:"white",
-          fontSize:"sm",
-          textAlign:"center",
+          color: "white",
+          fontSize: "sm",
+          textAlign: "center",
         }),
         contrastSubHeading: () => ({
-          color:"white",
-          fontSize:"md",
-          textAlign:"center",
-        })
-
+          color: "white",
+          fontSize: "md",
+          textAlign: "center",
+        }),
       },
     },
     Input: {
@@ -62,21 +61,21 @@ export const theme = extendTheme({
       },
     },
     Button: {
-      baseStyle: {
-        borderRadius: 50,
-        paddingBottom: 4,
-        paddingTop: 4,
-        paddingLeft: 8,
-        paddingRight: 8,
-      },
+      baseStyle: {},
       variants: {
         solid: () => ({
+          borderRadius: 50,
+          paddingBottom: 4,
+          paddingTop: 4,
+          paddingLeft: 8,
+          paddingRight: 8,
           backgroundColor: "primary.400",
           _pressed: { backgroundColor: "primary.500" },
         }),
         ghost: () => ({
-          _pressed: { backgroundColor: "gray.800" },
-          _text: { color: "white" },
+          padding: 4,
+          _pressed: { backgroundColor: "gray.200" },
+          _text: { color: "primary.400" },
         }),
       },
     },
