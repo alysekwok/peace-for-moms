@@ -23,10 +23,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 export const HomeScreen = () => {
   /***************		HOOKS		***************/
 
-  const image = require("../images/p4m-slogan-logo.png");
-  const image2 = require("../images/p4m-pic-1.png");
-  const logo1 = require("../images/back_logo.png");
-  const logo2 = require("../images/tutorial_logo.png");
+  const image = require("../images/p4m-pic-1.png");
   const { navigate } =
     useNavigation<NativeStackNavigationProp<MainRouterParams>>();
 
@@ -65,7 +62,7 @@ export const HomeScreen = () => {
         </Card>
         <Image
           alignSelf="center"
-          source={image2}
+          source={image}
           resizeMode="contain"
           alt="P4M Logo"
         />
