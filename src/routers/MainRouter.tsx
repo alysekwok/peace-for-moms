@@ -1,20 +1,29 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { HomeScreen } from "../screens/HomeScreen";
 import { TutorialScreen } from "../screens/TutorialScreen";
+import { EmergencyScreen } from "../screens/EmergencyScreen";
+import { TabRouter, TabRouterParams } from "./TabRouter";
+import { NavigatorScreenParams } from "@react-navigation/native";
 
 export type MainRouterParams = {
-  Home: undefined;
+  TabRouter: NavigatorScreenParams<TabRouterParams>;
   Tutorial: undefined;
+  Emergency: undefined;
 };
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<MainRouterParams>();
 
 export const MainRouter = () => {
+  /***************		JSX		***************/
+
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Navigator
+      initialRouteName="TabRouter"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="TabRouter" component={TabRouter} />
       <Stack.Screen name="Tutorial" component={TutorialScreen} />
+      <Stack.Screen name="Emergency" component={EmergencyScreen} />
     </Stack.Navigator>
   );
 };
