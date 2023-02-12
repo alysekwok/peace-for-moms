@@ -28,6 +28,7 @@ export const Layout: React.FC<IProps> = ({
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={{ flex: 1, backgroundColor: "white" }}
     >
+      <StatusBar barStyle="dark-content" />
       <Stack flex={1} space={3} margin={3} {...rest} justifyContent="center">
         {children}
       </Stack>

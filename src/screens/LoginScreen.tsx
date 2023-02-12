@@ -48,6 +48,7 @@ export const LoginScreen = () => {
         source={image}
         maxHeight={200}
         maxWidth={200}
+        resizeMode="contain"
         alt="P4M Logo"
       />
       <VStack>

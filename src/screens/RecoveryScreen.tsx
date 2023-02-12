@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import firebase from "firebase/compat";
 import { Layout } from "../components/Layout";
 import { auth } from "../firebase/config";
 import { Button, Card, Image, Input, Text, HStack, VStack } from "native-base";
@@ -11,28 +10,24 @@ export const RecoveryScreen = () => {
   /***************		HOOKS		***************/
 
   const [email, setEmail] = useState("");
-  const [errorCode, setErrorCode] = useState("");
   const image = require("../images/p4m_logo.png");
-  const { navigate } =
+  const { goBack } =
     useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
 
   /***************		FUNCTIONS		***************/
 
-    const handleEmailChange = (newEmail) => {
-      setEmail(newEmail);
-      setErrorCode("");
-    };
+  const handleEmailChange = (newEmail) => {
+    setEmail(newEmail);
+  };
 
-    const handleSendEmail = () => {
-      auth
-        .sendPasswordResetEmail(email)
-        .then(() => {
-        })
-        .catch((error) => alert(error.message));
-    }
+  const handleSendEmail = () => {
+    auth
+      .sendPasswordResetEmail(email)
+      .then(() => {})
+      .catch((error) => alert(error.message));
+  };
 
   /***************		JSX		***************/
-
 
   return (
     <Layout>
@@ -41,6 +36,7 @@ export const RecoveryScreen = () => {
         source={image}
         maxHeight={200}
         maxWidth={200}
+        resizeMode="contain"
         alt="P4M Logo"
       />
       <Card>
@@ -56,17 +52,17 @@ export const RecoveryScreen = () => {
               paddingRight={2}
               paddingLeft={2}
               backgroundColor="gray.500"
-              onPress={() => navigate("Login")}
+              onPress={() => goBack()}
             >
               Back
             </Button>
           </HStack>
           <Input
-             placeholder="Email"
-             value = {email}
-             onChangeText={(text) => handleEmailChange(text)}
-           />
-           <Button onPress={handleSendEmail}> Send Recovery Link</Button>
+            placeholder="Email"
+            value={email}
+            onChangeText={(text) => handleEmailChange(text)}
+          />
+          <Button onPress={handleSendEmail}> Send Recovery Link</Button>
         </VStack>
       </Card>
     </Layout>
