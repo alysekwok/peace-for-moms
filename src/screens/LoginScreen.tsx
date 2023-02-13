@@ -69,6 +69,7 @@ export const LoginScreen = () => {
             onSubmitEditing={() => {
               passwordInputRef.current.focus();
             }}
+            blurOnSubmit={false}
           />
           <Input
             ref={passwordInputRef}
