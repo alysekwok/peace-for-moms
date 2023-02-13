@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Layout } from "../components/Layout";
 import {
   Box,
@@ -16,6 +16,7 @@ import { useAppDispatch } from "../store";
 import { setAuthState } from "../store/slices/AuthSlice";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { UnauthRouterParams } from "../routers/UnauthRouter";
+import { TextInput } from "react-native";
 
 export const LoginScreen = () => {
   /***************		HOOKS		***************/
@@ -23,6 +24,8 @@ export const LoginScreen = () => {
   const image = require("../images/p4m_logo.png");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const passwordInputRef = useRef<TextInput>();
+
   const dispatch = useAppDispatch();
   const { navigate } =
     useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
@@ -63,12 +66,16 @@ export const LoginScreen = () => {
             placeholder="Username"
             value={username}
             onChangeText={(text) => setUsername(text)}
+            onSubmitEditing={() => {
+              passwordInputRef.current.focus();
+            }}
           />
           <Input
             placeholder="Password"
             value={password}
             onChangeText={(text) => setPassword(text)}
             secureTextEntry
+            onSubmitEditing={handleLogin}
           />
           <Button onPress={handleLogin}>Log In</Button>
           <Text color="gray.600">Don't have an account?</Text>
