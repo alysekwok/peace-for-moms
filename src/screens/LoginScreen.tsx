@@ -71,6 +71,7 @@ export const LoginScreen = () => {
             }}
           />
           <Input
+            ref={passwordInputRef}
             placeholder="Password"
             value={password}
             onChangeText={(text) => setPassword(text)}
