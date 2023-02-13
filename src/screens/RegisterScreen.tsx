@@ -5,6 +5,8 @@ import { auth } from "../firebase/config";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { UnauthRouterParams } from "../routers/UnauthRouter";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function RegisterScreen() {
   /***************		HOOKS		***************/
@@ -42,49 +44,53 @@ export function RegisterScreen() {
 
   return (
     <Layout>
-      <Image
-        alignSelf="center"
-        source={image}
-        maxHeight={200}
-        maxWidth={200}
-        resizeMode="contain"
-        alt="P4M Logo"
-      />
-      <Card>
-        <VStack space={3}>
-          <HStack space={3} justifyContent="space-between">
-            <Text color="gray.600" font-size={5}>
-              Register
-            </Text>
-            <Button
-              font-size={3}
-              paddingTop={1}
-              paddingBottom={1}
-              paddingRight={2}
-              paddingLeft={2}
-              backgroundColor="gray.500"
-              onPress={() => goBack()}
-            >
-              Back
-            </Button>
-          </HStack>
-          <Input placeholder="Email" onChangeText={handleEmailChange} />
-          <Input
-            placeholder="Password"
-            value={password}
-            secureTextEntry
-            onChangeText={setPassword}
+      <KeyboardAwareScrollView>
+        <SafeAreaView>
+          <Image
+            alignSelf="center"
+            source={image}
+            maxHeight={200}
+            maxWidth={200}
+            resizeMode="contain"
+            alt="P4M Logo"
           />
-          <Input
-            placeholder="Confirm Password"
-            secureTextEntry
-            value={confirmationPassword}
-            onChangeText={setConfirmationPassword}
-          />
-          <Text>{errorCode}</Text>
-          <Button onPress={handleSignUp}>Register</Button>
-        </VStack>
-      </Card>
+          <Card>
+            <VStack space={3}>
+              <HStack space={3} justifyContent="space-between">
+                <Text color="gray.600" font-size={5}>
+                  Register
+                </Text>
+                <Button
+                  font-size={3}
+                  paddingTop={1}
+                  paddingBottom={1}
+                  paddingRight={2}
+                  paddingLeft={2}
+                  backgroundColor="gray.500"
+                  onPress={() => goBack()}
+                >
+                  Back
+                </Button>
+              </HStack>
+              <Input placeholder="Email" onChangeText={handleEmailChange} />
+              <Input
+                placeholder="Password"
+                value={password}
+                secureTextEntry
+                onChangeText={setPassword}
+              />
+              <Input
+                placeholder="Confirm Password"
+                secureTextEntry
+                value={confirmationPassword}
+                onChangeText={setConfirmationPassword}
+              />
+              <Text>{errorCode}</Text>
+              <Button onPress={handleSignUp}>Register</Button>
+            </VStack>
+          </Card>
+        </SafeAreaView>
+      </KeyboardAwareScrollView>
     </Layout>
   );
 }
