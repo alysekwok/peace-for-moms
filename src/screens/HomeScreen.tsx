@@ -3,15 +3,12 @@ import { Layout } from "../components/Layout";
 import {
   Button,
   Card,
-  Heading,
   Image,
   Text,
   VStack,
-  Stack,
   HStack,
   Icon,
   Pressable,
-  Box,
 } from "native-base";
 import { useAppDispatch } from "../store";
 import { logOut } from "../store/slices/AuthSlice";
@@ -30,6 +27,8 @@ export const HomeScreen = () => {
   /***************		FUNCTIONS		***************/
 
   const dispatch = useAppDispatch();
+
+  /***************		JSX		***************/
 
   return (
     <Layout>

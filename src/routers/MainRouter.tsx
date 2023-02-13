@@ -5,7 +5,6 @@ import { EmergencyScreen } from "../screens/EmergencyScreen";
 import { TabRouter, TabRouterParams } from "./TabRouter";
 import { NavigatorScreenParams } from "@react-navigation/native";
 import { Header } from "../components/Header";
-import { Icon } from "native-base";
 import { BackButton } from "../components/BackButton";
 
 export type MainRouterParams = {

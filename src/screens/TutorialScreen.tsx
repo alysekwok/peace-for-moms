@@ -2,20 +2,13 @@ import React from "react";
 import { Layout } from "../components/Layout";
 import {
   Button,
-  Image,
   Text,
   HStack,
   VStack,
   Heading,
   Box,
   Divider,
-  Icon,
 } from "native-base";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { TouchableOpacity } from "react-native";
-import { MainRouterParams } from "../routers/MainRouter";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export const TutorialScreen = () => {
 
