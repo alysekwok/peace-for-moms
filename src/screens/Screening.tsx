@@ -40,7 +40,7 @@ export const Screening= () => {
              
              </Box>
             </VStack>
-            <HStack paddingTop={2} paddingLeft = {5} paddingRight = {5} space="180">
+            <HStack paddingTop={2} paddingLeft = {1} paddingRight = {0} space="160">
              <Button>Back</Button>
              <Button>Next</Button> 
              </HStack>
