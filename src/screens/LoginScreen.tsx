@@ -49,8 +49,9 @@ export const LoginScreen = () => {
       <Image
         alignSelf="center"
         source={image}
-        maxHeight={200}
-        maxWidth={200}
+        maxHeight={140}
+        maxWidth={140}
+        paddingTop = {150}
         resizeMode="contain"
         alt="P4M Logo"
       />

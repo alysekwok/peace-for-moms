@@ -33,7 +33,7 @@ export const HomeScreen = () => {
   return (
     <Layout>
       <VStack flex="space-between" space={3}>
-        <HStack paddingTop={0} alignSelf="center" space="200">
+        <HStack paddingTop={2} alignSelf="center" space="200">
           <Pressable alignItems="center" onPress={() => dispatch(logOut())}>
             <Icon
               name="logout"
@@ -55,8 +55,8 @@ export const HomeScreen = () => {
         </HStack>
         <Card>
           <VStack space={3}>
-            <Button>New Diagnosis</Button>
-            <Button onPress={() => navigate("Emergency")}>Contact Us</Button>
+            <Button onPress={() => navigate("Screener")}>New Diagnosis</Button>
+            <Button onPress={() => navigate("Contact")}>Contact Us</Button>
           </VStack>
         </Card>
         <Image
