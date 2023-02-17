@@ -33,7 +33,7 @@ export const HomeScreen = () => {
   return (
     <Layout>
       <VStack flex="space-between" space={3}>
-        <HStack paddingTop={0} alignSelf="center" space="200">
+        <HStack paddingTop={2} alignSelf="center" space="200">
           <Pressable alignItems="center" onPress={() => dispatch(logOut())}>
             <Icon
               name="logout"
