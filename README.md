@@ -3,6 +3,24 @@ A mobile application that helps healthcare professionals treat perinatal patient
 
 ## Release Notes
 
+### Release v0.2.0
+#### Features
+- A navigation bar on the bottom of the application
+- A screen page
+- A contact page
+- An emergency page
+- A logout functionality
+- Navigations after user logs in
+
+#### Bug Fixes
+- Naviagtion after user is corretly logged in
+- functionality for recover account
+
+#### Known Issues
+- Confusing UI of tutorial page
+- No functionality for contact us
+- Our app doesn't resize the screen depends on different sizes of screens
+
 ### Release v0.1.0
 #### Features
 - A page to create an account with Peace for Moms 
@@ -15,11 +33,6 @@ A mobile application that helps healthcare professionals treat perinatal patient
 #### Known Issues
 - No navigation after user is correctly logged in 
 - No functionality for recover account
-
-
-
-
-
 
 ## Project Set Up:
 For Mac:
