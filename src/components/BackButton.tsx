@@ -13,7 +13,7 @@ export const BackButton = () => {
       icon={<Icon color="primary.400" as={MaterialCommunityIcons} name="arrow-left" />}
       onPress={() => goBack()}
       variant="ghost"
-      padding={2}
+      padding={0}
       size="lg"
     />
   );

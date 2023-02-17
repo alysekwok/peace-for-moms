@@ -12,6 +12,7 @@ export const Header = () => {
         maxWidth={250}
         resizeMode="stretch"
         alt="P4M Logo"
+        alignItems = 'center'
       />
   );
 };
