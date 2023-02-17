@@ -26,7 +26,9 @@ export const Screening= () => {
             width="90%"
           >
             <Text textAlign="center" variant="blurb">
-              Please check the answer that is right for you.
+              Please check the answer that is right for you:
+            </Text>
+            <Text textAlign="center" variant="blurb" paddingTop={2}>
               Has there ever been a period of time in your life when you were not your usual self and...
             </Text>
           </Box>
@@ -35,8 +37,8 @@ export const Screening= () => {
               you got much less sleep than usual and found that you didn't really miss it?
             </Text>
             
-                <Button borderColor = "white" borderWidth = "2" marginTop={5}>Yes</Button>
-                <Button borderColor = "white" borderWidth = "2" marginTop={5}>No</Button> 
+                <Button textAlign="center" borderColor = "white" borderWidth = "2" marginTop={5} height = "55" width = "180">YES</Button>
+                <Button textAlign="center" borderColor = "white" borderWidth = "2" marginTop={5} height = "55" width = "180">NO</Button> 
              
              </Box>
             </VStack>
