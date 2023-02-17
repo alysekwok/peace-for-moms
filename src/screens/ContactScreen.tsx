@@ -1,3 +1,5 @@
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import {
   Card,
   Heading,
@@ -12,12 +14,16 @@ import {
   Spacer,
   Image,
   Button,
+  Link,
 } from "native-base";
 import React from "react";
 import { Layout } from "../components/Layout";
+import { MainRouterParams } from "../routers/MainRouter";
 
 export const ContactScreen = () => {
   const image = require("../images/p4m-contact.png");
+  const { navigate } =
+  useNavigation<NativeStackNavigationProp<MainRouterParams>>();
 
   return (
     <Layout>
@@ -27,7 +33,7 @@ export const ContactScreen = () => {
           <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
             <Text>
               NOTE: This is not an emergency service. For crisis resources,
-              click here.
+              click <Link onPress={() => navigate("Emergency")}>here</Link>.
             </Text>
           </Card>
           <VStack space={2}>
