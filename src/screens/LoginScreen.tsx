@@ -86,6 +86,12 @@ export const LoginScreen = () => {
           <Button onPress={() => navigate("Recovery")}>Recover Password</Button>
         </VStack>
       </Card>
+      <Image
+        alignSelf="center"
+        source={image}
+        resizeMode="contain"
+        alt="P4M Logo"
+      />
     </Layout>
   );
 };

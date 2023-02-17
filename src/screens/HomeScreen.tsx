@@ -56,7 +56,7 @@ export const HomeScreen = () => {
         <Card>
           <VStack space={3}>
             <Button>New Diagnosis</Button>
-            <Button onPress={() => navigate("Emergency")}>Contact Us</Button>
+            <Button onPress={() => navigate("Contact")}>Contact Us</Button>
           </VStack>
         </Card>
         <Image
