@@ -26,7 +26,7 @@ export const ContactScreen = () => {
           <Heading textAlign="center">Contact</Heading>
           <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
             <Text>
-              NOTE: this is not an emergency service. For crisis resources,
+              NOTE: This is not an emergency service. For crisis resources,
               click here.
             </Text>
           </Card>
