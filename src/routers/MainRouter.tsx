@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { TutorialScreen } from "../screens/TutorialScreen";
-import { Screening } from "../screens/Screening";
+import { Screening } from "../screens/ScreeningScreen";
 import { EmergencyScreen } from "../screens/EmergencyScreen";
 import { TabRouter, TabRouterParams } from "./TabRouter";
 import { NavigatorScreenParams } from "@react-navigation/native";
