@@ -9,15 +9,23 @@ import {
   Box,
   Divider,
 } from "native-base";
+import { MainRouterParams } from "../routers/MainRouter";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 export const TutorialScreen = () => {
+  /***************		HOOKS		***************/
+
+  const { navigate } =
+    useNavigation<NativeStackNavigationProp<MainRouterParams>>();
+
   /***************		JSX		***************/
 
   return (
     <Layout paddingTop={7}>
       <VStack space={5} alignItems="center" paddingBottom={20}>
         <HStack space={120}>
-          <Button>Contact Us</Button>
+          <Button onPress={() => navigate("Contact")}>Contact Us</Button>
         </HStack>
         <Box
           p="3.5"

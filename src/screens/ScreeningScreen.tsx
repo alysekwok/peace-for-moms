@@ -6,9 +6,7 @@ import {
   HStack,
   Heading,
   Box,
-  Divider,
   Button,
-  Card,
 } from "native-base";
 
 export const Screening = () => {
