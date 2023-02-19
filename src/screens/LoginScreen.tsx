@@ -25,7 +25,6 @@ export const LoginScreen = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const passwordInputRef = useRef<TextInput>();
-
   const dispatch = useAppDispatch();
   const { navigate } =
     useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
@@ -51,7 +50,7 @@ export const LoginScreen = () => {
         source={image}
         maxHeight={140}
         maxWidth={140}
-        paddingTop = {150}
+        paddingTop={150}
         resizeMode="contain"
         alt="P4M Logo"
       />

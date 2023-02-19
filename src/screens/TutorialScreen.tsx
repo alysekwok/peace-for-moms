@@ -11,7 +11,6 @@ import {
 } from "native-base";
 
 export const TutorialScreen = () => {
-
   /***************		JSX		***************/
 
   return (
