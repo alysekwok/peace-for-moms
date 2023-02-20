@@ -1,20 +1,42 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { HomeScreen } from "../screens/HomeScreen";
 import { TutorialScreen } from "../screens/TutorialScreen";
+import { Screening } from "../screens/ScreeningScreen";
+import { EmergencyScreen } from "../screens/EmergencyScreen";
+import { TabRouter, TabRouterParams } from "./TabRouter";
+import { NavigatorScreenParams } from "@react-navigation/native";
+import { Header } from "../components/Header";
+import { BackButton } from "../components/BackButton";
 
 export type MainRouterParams = {
-  Home: undefined;
+  TabRouter: NavigatorScreenParams<TabRouterParams>;
   Tutorial: undefined;
+  Screener: undefined;
+  Emergency: undefined;
+  Contact: undefined;
 };
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<MainRouterParams>();
 
 export const MainRouter = () => {
+  /***************		JSX		***************/
+
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Navigator
+      initialRouteName="TabRouter"
+      screenOptions={{
+        headerTitle: () => <Header />,
+        headerLeft: () => <BackButton />,
+      }}
+    >
+      <Stack.Screen
+        name="TabRouter"
+        component={TabRouter}
+        options={{ headerLeft: null }}
+      />
       <Stack.Screen name="Tutorial" component={TutorialScreen} />
+      <Stack.Screen name="Emergency" component={EmergencyScreen} />
+      <Stack.Screen name="Screener" component={Screening} />
     </Stack.Navigator>
   );
 };
