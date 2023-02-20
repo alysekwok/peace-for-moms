@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { LoginScreen } from "../screens/LoginScreen";
-import { MainScreen } from "../screens/MainScreen";
 import { RecoveryScreen } from "../screens/RecoveryScreen";
 import { RegisterScreen } from "../screens/RegisterScreen";
 
@@ -11,9 +10,11 @@ export type UnauthRouterParams = {
   Recovery: undefined;
 };
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<UnauthRouterParams>();
 
 export const UnauthRouter = () => {
+  /***************		JSX		***************/
+
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Login" component={LoginScreen} />

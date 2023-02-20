@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { AuthSlice } from "./slices/AuthSlice";
+
 export const store = configureStore({
   reducer: {
     [AuthSlice.name]: AuthSlice.reducer,

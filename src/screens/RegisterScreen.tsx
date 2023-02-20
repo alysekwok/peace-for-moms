@@ -14,7 +14,7 @@ export function RegisterScreen() {
   const [confirmationPassword, setConfirmationPassword] = useState("");
   const [errorCode, setErrorCode] = useState("");
   const image = require("../images/p4m_logo.png");
-  const { navigate } =
+  const { goBack } =
     useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
 
   /***************		FUNCTIONS		***************/
@@ -47,6 +47,7 @@ export function RegisterScreen() {
         source={image}
         maxHeight={200}
         maxWidth={200}
+        resizeMode="contain"
         alt="P4M Logo"
       />
       <Card>
@@ -62,7 +63,7 @@ export function RegisterScreen() {
               paddingRight={2}
               paddingLeft={2}
               backgroundColor="gray.500"
-              onPress={() => navigate("Login")}
+              onPress={() => goBack()}
             >
               Back
             </Button>
