@@ -41,11 +41,10 @@ export const TutorialScreen = () => {
         </Box>
         <Box alignItems="center" p="7" bg="primary.400" borderRadius={30}>
           <Text bold variant="contrastSubHeading">
-            Diagnose a patient:
+            Screen a patient:
           </Text>
           <Text variant="contrastBody">
-            On the Home page, select "New Diagnosis." Here, you can select from
-            a list of symptoms that your patient is facing. When you submit you
+            On the Home page, select "Screening Tool." Here, you can select mental health illnesses to screen for, and then select symptoms your patient is facing. When you submit you
             will receive possible diagnoses and treatments.
           </Text>
           <Divider my="3" />

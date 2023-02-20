@@ -52,7 +52,7 @@ export const HomeScreen = () => {
         </HStack>
         <Card>
           <VStack space={3}>
-            <Button onPress={() => navigate("Screener")}>New Diagnosis</Button>
+            <Button onPress={() => navigate("Screener")}>Screening Tool</Button>
             <Button onPress={() => navigate("Contact")}>Contact Us</Button>
           </VStack>
         </Card>
