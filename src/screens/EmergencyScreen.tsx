@@ -1,12 +1,6 @@
 import React from "react";
 import { Layout } from "../components/Layout";
-import {
-  Text,
-  VStack,
-  Heading,
-  Box,
-  Divider,
-} from "native-base";
+import { Text, VStack, Heading, Box, Divider } from "native-base";
 
 export const EmergencyScreen = () => {
   /***************		JSX		***************/

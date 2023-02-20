@@ -1,8 +1,8 @@
-import { Text } from 'native-base'
-import React from 'react'
+import { Text } from "native-base";
+import React from "react";
 
 export const ProfileScreen = () => {
-  return (
-    <Text>Profile</Text>
-  )
-}
+  /***************		JSX		***************/
+
+  return <Text>Profile</Text>;
+};

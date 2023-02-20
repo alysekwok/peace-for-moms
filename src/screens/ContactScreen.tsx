@@ -6,12 +6,9 @@ import {
   Text,
   VStack,
   Input,
-  Stack,
   FormControl,
   View,
   TextArea,
-  HStack,
-  Spacer,
   Image,
   Button,
   Link,
@@ -22,9 +19,13 @@ import { Layout } from "../components/Layout";
 import { MainRouterParams } from "../routers/MainRouter";
 
 export const ContactScreen = () => {
+  /***************		HOOKS		***************/
+
   const image = require("../images/p4m-contact.png");
   const { navigate } =
     useNavigation<NativeStackNavigationProp<MainRouterParams>>();
+
+  /***************		JSX		***************/
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>

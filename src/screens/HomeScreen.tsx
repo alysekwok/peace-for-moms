@@ -23,9 +23,6 @@ export const HomeScreen = () => {
   const image = require("../images/p4m-pic-1.png");
   const { navigate } =
     useNavigation<NativeStackNavigationProp<MainRouterParams>>();
-
-  /***************		FUNCTIONS		***************/
-
   const dispatch = useAppDispatch();
 
   /***************		JSX		***************/
