@@ -84,7 +84,7 @@ export const LoginScreen = () => {
           />
           <CheckBox
                 onPress={() => setlicensedOrNot(!licensedOrNot)}
-                title="Are you a Licensed Prescriber from the State of Georgia"
+                title="Are you a Licensed Prescriber from the State of Georgia?"
                 isChecked={licensedOrNot}
               />
           <Button onPress={handleLogin}>Log In</Button>
