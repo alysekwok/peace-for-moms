@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
     },
     title: {
-        fontSize: 10,
+        fontSize: 9,
         color: "gray.600",
         marginLeft: 5,
         fontWeight: "600",
