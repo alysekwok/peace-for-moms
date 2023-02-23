@@ -35,13 +35,18 @@ export const LoginScreen = () => {
   /***************		FUNCTIONS		***************/
 
   const handleLogin = () => {
+    if (!licensedOrNot) {
+      alert("You must be a licensed prescriber from Georgia to use this application")
+    } 
+    if (licensedOrNot) {
     auth
       .signInWithEmailAndPassword(username, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        dispatch(setAuthState({ user: user, isAuthenticated: true }));
+        dispatch(setAuthState({ user: user, isAuthenticated: true}));
       })
       .catch((error) => alert(error.message));
+    }
   };
 
   /***************		JSX		***************/
@@ -88,6 +93,7 @@ export const LoginScreen = () => {
                 isChecked={licensedOrNot}
               />
           <Button onPress={handleLogin}>Log In</Button>
+          
           <Text color="gray.600">Don't have an account?</Text>
           <Button onPress={() => navigate("Register")}>Register</Button>
           <Text color="gray.600">Forgot Your Password?</Text>
