@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Layout } from "../components/Layout";
+import {CheckBox} from "../components/Checkbox";
 import {
   Button,
   Card,
@@ -21,6 +22,7 @@ export const LoginScreen = () => {
   /***************		HOOKS		***************/
 
   const image = require("../images/p4m_logo.png");
+  const [licensedOrNot, setlicensedOrNot] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const passwordInputRef = useRef<TextInput>();
@@ -78,6 +80,11 @@ export const LoginScreen = () => {
             secureTextEntry
             onSubmitEditing={handleLogin}
           />
+          <CheckBox
+                onPress={() => setlicensedOrNot(!licensedOrNot)}
+                title="Are you a Licensed Prescriber from the State of Georgia?"
+                isChecked={licensedOrNot}
+              />
           <Button onPress={handleLogin}>Log In</Button>
           <Text color="gray.600">Don't have an account?</Text>
           <Button onPress={() => navigate("Register")}>Register</Button>
