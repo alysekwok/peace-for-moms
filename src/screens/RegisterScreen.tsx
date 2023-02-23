@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Layout } from "../components/Layout";
 import { Button, Card, Image, Input, Text, VStack, HStack } from "native-base";
 import { auth } from "../firebase/config";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { UnauthRouterParams } from "../routers/UnauthRouter";
+import { TextInput } from "react-native";
+import { useAppDispatch } from "../store";
+import { setAuthState } from "../store/slices/AuthSlice";
 
 export function RegisterScreen() {
   /***************		HOOKS		***************/
@@ -16,6 +19,8 @@ export function RegisterScreen() {
   const image = require("../images/p4m_logo.png");
   const { goBack } =
     useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
+  const passwordInputRef = useRef<TextInput>();
+  const dispatch = useAppDispatch();
 
   /***************		FUNCTIONS		***************/
 
@@ -33,6 +38,7 @@ export function RegisterScreen() {
         .createUserWithEmailAndPassword(email, password)
         .then((userCredentials) => {
           const user = userCredentials.user;
+          dispatch(setAuthState({ user: user, isAuthenticated: true }));
         })
         .catch((error) => alert(error.message));
     }
@@ -68,18 +74,29 @@ export function RegisterScreen() {
               Back
             </Button>
           </HStack>
-          <Input placeholder="Email" onChangeText={handleEmailChange} />
+          <Input
+            placeholder="Email"
+            onChangeText={handleEmailChange}
+            onSubmitEditing={() => {
+              passwordInputRef.current.focus();
+            }}
+          />
           <Input
             placeholder="Password"
             value={password}
             secureTextEntry
             onChangeText={setPassword}
+            onSubmitEditing={() => {
+              passwordInputRef.current.focus();
+            }}
           />
           <Input
+            ref={passwordInputRef}
             placeholder="Confirm Password"
             secureTextEntry
             value={confirmationPassword}
             onChangeText={setConfirmationPassword}
+            onSubmitEditing={handleSignUp}
           />
           <Text>{errorCode}</Text>
           <Button onPress={handleSignUp}>Register</Button>
