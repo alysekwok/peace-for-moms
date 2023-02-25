@@ -18,7 +18,8 @@ export function RegisterScreen() {
   const [errorCode, setErrorCode] = useState("");
   const image = require("../images/p4m_logo.png");
   const { goBack } =
-    useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
+     useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
+
   const passwordInputRef = useRef<TextInput>();
   const dispatch = useAppDispatch();
 

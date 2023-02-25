@@ -7,6 +7,9 @@ import { TabRouter, TabRouterParams } from "./TabRouter";
 import { NavigatorScreenParams } from "@react-navigation/native";
 import { Header } from "../components/Header";
 import { BackButton } from "../components/BackButton";
+import { ContactScreen } from "../screens/ContactScreen";
+import { RegisterScreen } from "../screens/RegisterScreen";
+import { RecoveryScreen } from "../screens/RecoveryScreen";
 
 export type MainRouterParams = {
   TabRouter: NavigatorScreenParams<TabRouterParams>;
@@ -14,6 +17,8 @@ export type MainRouterParams = {
   Screener: undefined;
   Emergency: undefined;
   Contact: undefined;
+  Registering : undefined;
+  Recovering: undefined;
 };
 
 const Stack = createNativeStackNavigator<MainRouterParams>();
@@ -37,6 +42,9 @@ export const MainRouter = () => {
       <Stack.Screen name="Tutorial" component={TutorialScreen} />
       <Stack.Screen name="Emergency" component={EmergencyScreen} />
       <Stack.Screen name="Screener" component={Screening} />
+      <Stack.Screen name="Registering" component={RegisterScreen} />
+      <Stack.Screen name="Recovering" component={RecoveryScreen} />
+      <Stack.Screen name="Contact" component={ContactScreen} />
     </Stack.Navigator>
   );
 };

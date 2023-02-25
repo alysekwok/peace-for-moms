@@ -31,8 +31,7 @@ export const ContactScreen = () => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Layout>
         <FormControl>
-          <VStack space={3}>
-            <Heading textAlign="center">Contact</Heading>
+          <VStack space={5} paddingTop = {10}>
             <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
               <Text>
                 NOTE: This is not an emergency service. For crisis resources,
