@@ -17,7 +17,6 @@ import { setAuthState } from "../store/slices/AuthSlice";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { UnauthRouterParams } from "../routers/UnauthRouter";
 import { TextInput } from "react-native";
-import { MainRouterParams } from "../routers/MainRouter";
 
 export const LoginScreen = () => {
   /***************		HOOKS		***************/
@@ -30,9 +29,6 @@ export const LoginScreen = () => {
   const dispatch = useAppDispatch();
   const { navigate } =
     useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
-
-  // const { navigate } =
-  //   useNavigation<NativeStackNavigationProp<MainRouterParams>>();
 
   /***************		FUNCTIONS		***************/
 
