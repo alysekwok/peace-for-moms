@@ -1,10 +1,19 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from 'react';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
   
 export const CheckBox = (props) => {
     const iconName = props.isChecked ?
         "checkbox-marked" : "checkbox-blank-outline";
+    
+        const [checkBoxPressed, setCheckBoxPressed]  = useState(false);
+        const checkedOrNot = () => {
+          if (!checkBoxPressed) {
+            <Text> Something is wrong </Text>
+          } else {
+            /* continue with sign up */
+          }
+        }
   
     return (
         <View style={styles.container}>
