@@ -77,6 +77,13 @@ export const theme = extendTheme({
           _pressed: { backgroundColor: "gray.200" },
           _text: { color: "primary.400" },
         }),
+        outline: () => ({
+          borderRadius: 50,
+          padding: 7,
+          paddingBottom: 4,
+          paddingTop: 4,
+          
+        }),
       },
     },
   },
