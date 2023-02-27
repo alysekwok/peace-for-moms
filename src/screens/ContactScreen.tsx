@@ -13,7 +13,7 @@ import {
   Button,
   Link,
 } from "native-base";
-import React from "react";
+import React, { useState } from "react";
 import { Keyboard, TouchableWithoutFeedback } from "react-native";
 import { Layout } from "../components/Layout";
 import { MainRouterParams } from "../routers/MainRouter";
@@ -24,14 +24,68 @@ export const ContactScreen = () => {
   const image = require("../images/p4m-contact.png");
   const { navigate } =
     useNavigation<NativeStackNavigationProp<MainRouterParams>>();
+  const [formData, setData] = React.useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [subjectError, setSubjectError] = useState("");
+  const [messageError, setMessageError] = useState("");
+
+  const validate = () => {
+    var nameValid = false;
+    if (formData.name === "") {
+      setNameError("Name is required");
+    } else {
+      setNameError("");
+      nameValid = true;
+    }
+    var emailValid = false;
+    if (formData.email === "") {
+      setEmailError("Email is required");
+    } else {
+      setEmailError("");
+      emailValid = true;
+    }
+    var subjectValid = false;
+    if (formData.subject === "") {
+      setSubjectError("Subject is required");
+    } else {
+      setSubjectError("");
+      subjectValid = true;
+    }
+    var messageValid = false;
+    if (formData.message === "") {
+      setMessageError("Message is required");
+    } else {
+      setMessageError("");
+      messageValid = true;
+    }
+    if (nameValid && emailValid && subjectValid && messageValid) {
+      alert("Message sent successfully!");
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const onSubmit = () => {
+    validate()
+      ? console.log("Form successfully submitted")
+      : console.log("Form invalid");
+  };
 
   /***************		JSX		***************/
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Layout>
-        <FormControl>
+        <FormControl isRequired>
           <VStack space={5} paddingTop = {10}>
+            <Heading textAlign="center">Contact</Heading>
             <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
               <Text>
                 NOTE: This is not an emergency service. For crisis resources,
@@ -41,22 +95,60 @@ export const ContactScreen = () => {
             <VStack space={2}>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1 }}>
-                  <Input p={2} mr={2} placeholder="Name" />
+                  <Input
+                    p={2}
+                    mr={2}
+                    placeholder="Name"
+                    onChangeText={(value) =>
+                      setData({ ...formData, name: value })
+                    }
+                    value={formData.name}
+                  />
+                  {nameError.length > 0 && (
+                    <Text style={{ color: "red" }}>{nameError}</Text>
+                  )}
                 </View>
                 <View style={{ flex: 2 }}>
-                  <Input p={2} placeholder="Email" />
+                  <Input
+                    p={2}
+                    placeholder="Email"
+                    onChangeText={(value) =>
+                      setData({ ...formData, email: value })
+                    }
+                    value={formData.email}
+                  />
+                  {emailError.length > 0 && (
+                    <Text style={{ color: "red" }}>{emailError}</Text>
+                  )}
                 </View>
               </View>
-              <Input p={2} placeholder="Subject" />
+              <Input
+                p={2}
+                placeholder="Subject"
+                onChangeText={(value) =>
+                  setData({ ...formData, subject: value })
+                }
+                value={formData.subject}
+              />
+              {subjectError.length > 0 && (
+                <Text style={{ color: "red" }}>{subjectError}</Text>
+              )}
               <TextArea
                 p={2}
                 placeholder="Message"
                 autoCompleteType={undefined}
+                onChangeText={(value) =>
+                  setData({ ...formData, message: value })
+                }
+                value={formData.message}
               />
+              {messageError.length > 0 && (
+                <Text style={{ color: "red" }}>{messageError}</Text>
+              )}
             </VStack>
           </VStack>
         </FormControl>
-        <Button>Send Message</Button>
+        <Button onPress={onSubmit}>Send Message</Button>
         <Image
           alignSelf="center"
           source={image}
