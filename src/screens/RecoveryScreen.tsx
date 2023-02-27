@@ -11,8 +11,7 @@ export const RecoveryScreen = () => {
 
   const [email, setEmail] = useState("");
   const image = require("../images/p4m_logo.png");
-  const { goBack } =
-    useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
+
 
   /***************		FUNCTIONS		***************/
 
@@ -42,20 +41,9 @@ export const RecoveryScreen = () => {
       <Card>
         <VStack space={5}>
           <HStack space={3} justifyContent="space-between">
-            <Text color="gray.600" font-size={5}>
+            <Text color="black" font-size={5}>
               Recover Account
             </Text>
-            <Button
-              font-size={3}
-              paddingTop={1}
-              paddingBottom={1}
-              paddingRight={2}
-              paddingLeft={2}
-              backgroundColor="gray.500"
-              onPress={() => goBack()}
-            >
-              Back
-            </Button>
           </HStack>
           <Input
             placeholder="Email"

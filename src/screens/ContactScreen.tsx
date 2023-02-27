@@ -84,7 +84,7 @@ export const ContactScreen = () => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Layout>
         <FormControl isRequired>
-          <VStack space={3}>
+          <VStack space={5} paddingTop = {10}>
             <Heading textAlign="center">Contact</Heading>
             <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
               <Text>

@@ -17,8 +17,7 @@ export function RegisterScreen() {
   const [confirmationPassword, setConfirmationPassword] = useState("");
   const [errorCode, setErrorCode] = useState("");
   const image = require("../images/p4m_logo.png");
-  const { goBack } =
-    useNavigation<NativeStackNavigationProp<UnauthRouterParams>>();
+
   const passwordInputRef = useRef<TextInput>();
   const dispatch = useAppDispatch();
 
@@ -59,20 +58,9 @@ export function RegisterScreen() {
       <Card>
         <VStack space={3}>
           <HStack space={3} justifyContent="space-between">
-            <Text color="gray.600" font-size={5}>
+            <Text color="black" font-size={5}>
               Register
             </Text>
-            <Button
-              font-size={3}
-              paddingTop={1}
-              paddingBottom={1}
-              paddingRight={2}
-              paddingLeft={2}
-              backgroundColor="gray.500"
-              onPress={() => goBack()}
-            >
-              Back
-            </Button>
           </HStack>
           <Input
             placeholder="Email"

@@ -95,7 +95,7 @@ export const LoginScreen = () => {
           <Text color="gray.600">Don't have an account?</Text>
           <Button onPress={() => navigate("Register")}>Register</Button>
           <Text color="gray.600">Forgot Your Password?</Text>
-          <Button onPress={() => navigate("Recovery")}>Recover Password</Button>
+          <Button onPress={() => navigate("Recover")}>Recover Password</Button>
         </VStack>
       </Card>
     </Layout>
