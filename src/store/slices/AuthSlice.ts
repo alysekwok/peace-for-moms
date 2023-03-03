@@ -3,7 +3,7 @@ import firebase from "firebase/compat";
 
 export interface AuthSliceState {
   isAuthenticated: boolean;
-  user: firebase.User | null;
+  user: firebase.UserInfo | null;
 }
 
 const initialState: AuthSliceState = {

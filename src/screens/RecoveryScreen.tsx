@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Layout } from "../components/Layout";
 import { auth } from "../firebase/config";
 import { Button, Card, Image, Input, Text, HStack, VStack } from "native-base";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { UnauthRouterParams } from "../routers/UnauthRouter";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 export const RecoveryScreen = () => {
   /***************		HOOKS		***************/
@@ -20,8 +18,7 @@ export const RecoveryScreen = () => {
   };
 
   const handleSendEmail = () => {
-    auth
-      .sendPasswordResetEmail(email)
+    sendPasswordResetEmail(auth, email)
       .then(() => {})
       .catch((error) => alert(error.message));
   };

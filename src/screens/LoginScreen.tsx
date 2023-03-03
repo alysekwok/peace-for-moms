@@ -17,6 +17,7 @@ import { setAuthState } from "../store/slices/AuthSlice";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { UnauthRouterParams } from "../routers/UnauthRouter";
 import { TextInput } from "react-native";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export const LoginScreen = () => {
   /***************		HOOKS		***************/
@@ -37,10 +38,9 @@ export const LoginScreen = () => {
       alert("You must be a licensed prescriber from Georgia to use this application")
     } 
     if (licensedOrNot) {
-    auth
-      .signInWithEmailAndPassword(username, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
+    signInWithEmailAndPassword(auth, username, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
         dispatch(setAuthState({ user: user, isAuthenticated: true}));
       })
       .catch((error) => alert(error.message));
