@@ -18,10 +18,12 @@ export const UnauthRouter = () => {
   /***************		JSX		***************/
 
   return (
-    <Stack.Navigator screenOptions={{
-      headerTitle: () => <Header />,
-      headerLeft: () => <BackButton />,
-    }}>
+    <Stack.Navigator
+      screenOptions={{
+        headerTitle: () => <Header />,
+        headerLeft: () => <BackButton />,
+      }}
+    >
       {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
       <Stack.Screen
         name="Login"

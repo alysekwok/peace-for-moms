@@ -1,4 +1,4 @@
-import { get, getDatabase, ref, set } from "@firebase/database";
+import { get, ref, set } from "@firebase/database";
 import { Button, Text, HStack } from "native-base";
 import React, { useMemo, useState } from "react";
 import { Layout } from "../components/Layout";

@@ -25,7 +25,9 @@ export const TutorialScreen = () => {
     <Layout paddingTop={7}>
       <VStack space={5} alignItems="center" paddingBottom={20}>
         <HStack space={120}>
-          <Button onPress={() => navigate("Contact")}>Contact Us</Button>
+          <Button onPress={() => navigate("TabRouter", { screen: "Contact" })}>
+            Contact Us
+          </Button>
         </HStack>
         <Box
           p="3.5"

@@ -1,6 +1,17 @@
 import { extendTheme } from "native-base";
 
-const primary = {};
+const primary = {
+  50: "#efe8fc",
+  100: "#cebbf7",
+  200: "#ad8df1",
+  300: "#8d5fec",
+  400: "#6c32e7",
+  500: "#5218cd",
+  600: "#4013a0",
+  700: "#2e0e72",
+  800: "#1b0844",
+  900: "#090317",
+};
 
 const secondary = {};
 
@@ -8,18 +19,7 @@ const tertiary = {};
 
 export const theme = extendTheme({
   colors: {
-    primary: {
-      50: "#efe8fc",
-      100: "#cebbf7",
-      200: "#ad8df1",
-      300: "#8d5fec",
-      400: "#6c32e7",
-      500: "#5218cd",
-      600: "#4013a0",
-      700: "#2e0e72",
-      800: "#1b0844",
-      900: "#090317",
-    },
+    primary,
     secondary,
     tertiary,
   },
@@ -82,7 +82,6 @@ export const theme = extendTheme({
           padding: 7,
           paddingBottom: 4,
           paddingTop: 4,
-          
         }),
       },
     },

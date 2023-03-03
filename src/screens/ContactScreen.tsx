@@ -35,6 +35,8 @@ export const ContactScreen = () => {
   const [subjectError, setSubjectError] = useState("");
   const [messageError, setMessageError] = useState("");
 
+  /***************		FUNCTIONS		***************/
+
   const validate = () => {
     var nameValid = false;
     if (formData.name === "") {
