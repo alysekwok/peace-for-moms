@@ -39,9 +39,7 @@ export const MainRouter = () => {
       />
       <Stack.Screen name="Tutorial" component={TutorialScreen} />
       <Stack.Screen name="Emergency" component={EmergencyScreen} />
-  
       <Stack.Screen name="Screener" component={Screening} />
-      <Stack.Screen name="Contact" component={ContactScreen} />
     </Stack.Navigator>
   );
 };
