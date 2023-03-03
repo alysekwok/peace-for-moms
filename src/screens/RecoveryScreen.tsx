@@ -10,7 +10,6 @@ export const RecoveryScreen = () => {
   const [email, setEmail] = useState("");
   const image = require("../images/p4m_logo.png");
 
-
   /***************		FUNCTIONS		***************/
 
   const handleEmailChange = (newEmail) => {
