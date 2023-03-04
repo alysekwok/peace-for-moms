@@ -2,12 +2,10 @@ import React, { useRef, useState } from "react";
 import { Layout } from "../components/Layout";
 import { Button, Card, Image, Input, Text, VStack, HStack } from "native-base";
 import { auth } from "../firebase/config";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { UnauthRouterParams } from "../routers/UnauthRouter";
 import { TextInput } from "react-native";
 import { useAppDispatch } from "../store";
 import { setAuthState } from "../store/slices/AuthSlice";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export function RegisterScreen() {
   /***************		HOOKS		***************/
@@ -33,10 +31,9 @@ export function RegisterScreen() {
       setErrorCode("Your passwords don't match");
       return;
     } else {
-      auth
-        .createUserWithEmailAndPassword(email, password)
-        .then((userCredentials) => {
-          const user = userCredentials.user;
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
           dispatch(setAuthState({ user: user, isAuthenticated: true }));
         })
         .catch((error) => alert(error.message));

@@ -35,6 +35,8 @@ export const ContactScreen = () => {
   const [subjectError, setSubjectError] = useState("");
   const [messageError, setMessageError] = useState("");
 
+  /***************		FUNCTIONS		***************/
+
   const validate = () => {
     var nameValid = false;
     if (formData.name === "") {
@@ -84,7 +86,7 @@ export const ContactScreen = () => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Layout>
         <FormControl isRequired>
-          <VStack space={5} paddingTop = {10}>
+          <VStack space={5} paddingTop={10}>
             <Heading textAlign="center">Contact</Heading>
             <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
               <Text>

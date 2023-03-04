@@ -25,7 +25,9 @@ export const TutorialScreen = () => {
     <Layout paddingTop={7}>
       <VStack space={5} alignItems="center" paddingBottom={20}>
         <HStack space={120}>
-          <Button onPress={() => navigate("Contact")}>Contact Us</Button>
+          <Button onPress={() => navigate("TabRouter", { screen: "Contact" })}>
+            Contact Us
+          </Button>
         </HStack>
         <Box
           p="3.5"
@@ -44,8 +46,10 @@ export const TutorialScreen = () => {
             Screen a patient:
           </Text>
           <Text variant="contrastBody">
-            On the Home page, select "Screening Tool." Here, you can select mental health illnesses to screen for, and then select symptoms your patient is facing. When you submit you
-            will receive possible diagnoses and treatments.
+            On the Home page, select "Screening Tool." Here, you can select
+            mental health illnesses to screen for, and then select symptoms your
+            patient is facing. When you submit you will receive possible
+            diagnoses and treatments.
           </Text>
           <Divider my="3" />
           <Text bold variant="contrastSubHeading">

@@ -1,13 +1,6 @@
 import React from "react";
 import { Layout } from "../components/Layout";
-import {
-  Text,
-  VStack,
-  HStack,
-  Heading,
-  Box,
-  Button,
-} from "native-base";
+import { Text, VStack, HStack, Heading, Box, Button } from "native-base";
 
 export const Screening = () => {
   /***************		JSX		***************/

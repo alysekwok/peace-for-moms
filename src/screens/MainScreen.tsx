@@ -1,8 +1,8 @@
-import { get, getDatabase, ref, set } from "@firebase/database";
+import { get, ref, set } from "@firebase/database";
 import { Button, Text, HStack } from "native-base";
 import React, { useMemo, useState } from "react";
 import { Layout } from "../components/Layout";
-import { app } from "../firebase/config";
+import { database } from "../firebase/config";
 
 export const MainScreen = () => {
   const questions = [
@@ -12,7 +12,6 @@ export const MainScreen = () => {
   ];
   const [qNumber, setQNumber] = useState(1);
   const [pressed, setPressed] = useState([-1, -1, -1]);
-  const database = getDatabase(app, app.options.databaseURL);
   const reference = ref(database, "question/b" + qNumber);
   const text = questions[qNumber - 1];
   const currentValue = useMemo(() => {

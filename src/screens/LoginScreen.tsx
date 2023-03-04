@@ -1,15 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Layout } from "../components/Layout";
-import {CheckBox} from "../components/Checkbox";
-import {
-  Button,
-  Card,
-  Heading,
-  Image,
-  Input,
-  Text,
-  VStack,
-} from "native-base";
+import { CheckBox } from "../components/Checkbox";
+import { Button, Card, Heading, Image, Input, Text, VStack } from "native-base";
 import { auth } from "../firebase/config";
 import { useNavigation } from "@react-navigation/native";
 import { useAppDispatch } from "../store";
@@ -17,6 +9,7 @@ import { setAuthState } from "../store/slices/AuthSlice";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { UnauthRouterParams } from "../routers/UnauthRouter";
 import { TextInput } from "react-native";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export const LoginScreen = () => {
   /***************		HOOKS		***************/
@@ -34,16 +27,17 @@ export const LoginScreen = () => {
 
   const handleLogin = () => {
     if (!licensedOrNot) {
-      alert("You must be a licensed prescriber from Georgia to use this application")
-    } 
+      alert(
+        "You must be a licensed prescriber from Georgia to use this application"
+      );
+    }
     if (licensedOrNot) {
-    auth
-      .signInWithEmailAndPassword(username, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        dispatch(setAuthState({ user: user, isAuthenticated: true}));
-      })
-      .catch((error) => alert(error.message));
+      signInWithEmailAndPassword(auth, username, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          dispatch(setAuthState({ user: user, isAuthenticated: true }));
+        })
+        .catch((error) => alert(error.message));
     }
   };
 
@@ -86,12 +80,12 @@ export const LoginScreen = () => {
             onSubmitEditing={handleLogin}
           />
           <CheckBox
-                onPress={() => setlicensedOrNot(!licensedOrNot)}
-                title="Are you a Licensed Prescriber from the State of Georgia?"
-                isChecked={licensedOrNot}
-              />
+            onPress={() => setlicensedOrNot(!licensedOrNot)}
+            title="Are you a Licensed Prescriber from the State of Georgia?"
+            isChecked={licensedOrNot}
+          />
           <Button onPress={handleLogin}>Log In</Button>
-          
+
           <Text color="gray.600">Don't have an account?</Text>
           <Button onPress={() => navigate("Register")}>Register</Button>
           <Text color="gray.600">Forgot Your Password?</Text>
