@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { Layout } from "../components/Layout";
-import { CheckBox } from "../components/Checkbox";
 import {
   Button,
   Card,

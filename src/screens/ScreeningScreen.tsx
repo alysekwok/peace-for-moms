@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Layout } from "../components/Layout";
-import { Text, VStack, HStack, Heading, Box, Button, Card } from "native-base";
+import { Text, VStack, HStack, Button, Card } from "native-base";
 import { database } from "../firebase/config";
 import { get, ref } from "firebase/database";
 import { useNavigation } from "@react-navigation/native";

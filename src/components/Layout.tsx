@@ -3,11 +3,9 @@ import {
   Stack,
   IStackProps,
   StatusBar,
-  KeyboardAvoidingView,
-  ScrollView,
 } from "native-base";
 import React from "react";
-import { Platform, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 
 interface IProps extends IStackProps {
   disablePadding?: boolean;
