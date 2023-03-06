@@ -29,6 +29,10 @@ export const ScreeningScreen = ({ route }) => {
 
   const { navigate, goBack } = useNavigation();
 
+  /***************		VARIABLES		***************/
+
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
   /***************		FUNCTIONS		***************/
 
   const handleBack = () => {
@@ -89,7 +93,13 @@ export const ScreeningScreen = ({ route }) => {
         >
           <Text bold variant="contrastSubHeading">
             {questions.length > 0
-              ? questions[questionNumber].precept +
+              ? "" +
+                (questionNumber + 1) +
+                (questions[questionNumber].remaining.length > 1
+                  ? alphabet[remainingNumber]
+                  : "") +
+                ". " +
+                questions[questionNumber].precept +
                 questions[questionNumber].remaining[remainingNumber]
               : ""}
           </Text>
