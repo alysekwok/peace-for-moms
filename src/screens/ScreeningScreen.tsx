@@ -34,7 +34,6 @@ export const ScreeningScreen = ({ route }) => {
   const handleBack = () => {
     if (remainingNumber === 0) {
       if (questionNumber > 0) {
-        // MIGHT GET WEIRD BEHAVIOR HERE
         setRemainingNumber(questions[questionNumber - 1].remaining.length - 1);
         setQuestionNumber(questionNumber - 1);
       } else {
