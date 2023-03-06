@@ -1,13 +1,12 @@
 import React from "react";
 import { Layout } from "../components/Layout";
 import {
-  Button,
   Text,
-  HStack,
   VStack,
   Heading,
   Box,
   Divider,
+  Link,
 } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
@@ -24,11 +23,7 @@ export const TutorialScreen = () => {
   return (
     <Layout paddingTop={7}>
       <VStack space={5} alignItems="center" paddingBottom={20}>
-        <HStack space={120}>
-          <Button onPress={() => navigate("TabRouter", { screen: "Contact" })}>
-            Contact Us
-          </Button>
-        </HStack>
+  
         <Box
           p="3.5"
           bg="yellow.100"
@@ -57,9 +52,10 @@ export const TutorialScreen = () => {
           </Text>
           <Text variant="contrastBody">
             Select "Contact Us" on the Home page or after receiving a diagnosis
-            for information to reach a Peace for Moms professional directly.
+            for information to reach a Peace for Moms professional directly, or click <Link onPress={() => navigate("TabRouter", { screen: "Contact" })}>here</Link>
           </Text>
         </Box>
+    
       </VStack>
     </Layout>
   );
