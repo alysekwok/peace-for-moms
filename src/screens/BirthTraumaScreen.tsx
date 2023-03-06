@@ -39,7 +39,8 @@ const BirthTraumaContent = ({ questionList }) => {
   const question = questionList[questionIndex];
   // console.log(JSON.stringify(question, undefined, 2));
 
-  const { answers, precept, remaining } = question;
+  const { precept, remaining } = question;
+  const answers = question.answers as string[];
 
   return (
     <Layout>
@@ -69,27 +70,20 @@ const BirthTraumaContent = ({ questionList }) => {
             you got much less sleep than usual and found that you didn't really
             miss it?
           </Text>
-
-          <Button
-            textAlign="center"
-            borderColor="white"
-            borderWidth="2"
-            marginTop={5}
-            height="55"
-            width="180"
-          >
-            YES
-          </Button>
-          <Button
-            textAlign="center"
-            borderColor="white"
-            borderWidth="2"
-            marginTop={5}
-            height="55"
-            width="180"
-          >
-            NO
-          </Button>
+          {answers.map((answer) => {
+            return (
+              <Button
+                textAlign="center"
+                borderColor="white"
+                borderWidth="2"
+                marginTop={5}
+                height="55"
+                width="180"
+              >
+                {answer}
+              </Button>
+            );
+          })}
         </Box>
       </VStack>
       <HStack paddingTop={2} paddingLeft={1} paddingRight={0} space="160">
