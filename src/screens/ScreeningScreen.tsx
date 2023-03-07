@@ -131,7 +131,7 @@ export const ScreeningScreen = ({ route }) => {
           )}
         </Card>
 
-        <HStack paddingTop={2} paddingLeft={1} paddingRight={0} space="160">
+        <HStack space={20} justifyContent="space-evenly"  >
           <Button onPress={handleBack}>Back</Button>
           <Button onPress={handleNext}>Next</Button>
         </HStack>
