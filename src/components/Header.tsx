@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Image } from "native-base";
-import { Layout } from "./Layout";
+import { Image } from "native-base";
 
 export const Header = () => {
   const image = require("../images/p4m-header-logo.png");

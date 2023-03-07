@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { TutorialScreen } from "../screens/TutorialScreen";
-import { Screening } from "../screens/ScreeningScreen";
+import { ScreeningScreen, ScreeningScreenProps } from "../screens/ScreeningScreen";
+import { ScreeningTypeScreen } from "../screens/ScreeningTypeScreen";
 import { EmergencyScreen } from "../screens/EmergencyScreen";
 import { TabRouter, TabRouterParams } from "./TabRouter";
 import { NavigatorScreenParams } from "@react-navigation/native";
@@ -12,6 +13,7 @@ export type MainRouterParams = {
   TabRouter: NavigatorScreenParams<TabRouterParams>;
   Tutorial: undefined;
   Screener: undefined;
+  Screening: ScreeningScreenProps;
   Emergency: undefined;
 };
 
@@ -35,7 +37,9 @@ export const MainRouter = () => {
       />
       <Stack.Screen name="Tutorial" component={TutorialScreen} />
       <Stack.Screen name="Emergency" component={EmergencyScreen} />
-      <Stack.Screen name="Screener" component={Screening} />
+      <Stack.Screen name="Screener" component={ScreeningTypeScreen} />
+      <Stack.Screen name="Screening" component={ScreeningScreen} />
+
     </Stack.Navigator>
   );
 };
