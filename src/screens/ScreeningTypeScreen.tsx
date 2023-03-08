@@ -23,7 +23,7 @@ export const ScreeningTypeScreen = () => {
   /***************		JSX		***************/
   return (
     <Layout>
-      <VStack space={8} alignItems="center">
+      <VStack space={8} alignItems="center" justifyContent="center" pt={20}>
         <Heading textAlign="center">What are you screening for?</Heading>
         <Center>
           <Box maxW="300">
@@ -43,6 +43,7 @@ export const ScreeningTypeScreen = () => {
               <Select.Item label="Anxiety" value="anxiety" />
               <Select.Item label="Postnatal Depression" value="depression" />
               <Select.Item label="Birth Trauma" value="birth_trauma" />
+              <Select.Item label="GAD Anxiety" value="GAD_anxiety" />
             </Select>
           </Box>
         </Center>

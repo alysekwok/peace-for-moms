@@ -65,24 +65,31 @@ export const theme = extendTheme({
       variants: {
         solid: () => ({
           borderRadius: 50,
-          paddingBottom: 4,
-          paddingTop: 4,
-          paddingLeft: 8,
-          paddingRight: 8,
+          paddingBottom: 2,
+          paddingTop: 2,
+          paddingLeft: 5,
+          paddingRight: 5,
           backgroundColor: "primary.400",
           _pressed: { backgroundColor: "primary.500" },
         }),
         ghost: () => ({
-          padding: 4,
+          padding: 2,
           _pressed: { backgroundColor: "gray.200" },
           _text: { color: "primary.400" },
         }),
         outline: () => ({
           borderRadius: 50,
-          padding: 7,
+          paddingBottom: 2,
+          paddingTop: 2,
+        }),
+        big: () => ({
+          borderRadius: 50,
+          backgroundColor: "primary.400",
           paddingBottom: 4,
           paddingTop: 4,
-        }),
+          _pressed: { backgroundColor: "primary.500" },
+          _text: { color:"white" }
+        })
       },
     },
   },
