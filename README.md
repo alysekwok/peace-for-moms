@@ -4,6 +4,27 @@ A mobile application that helps healthcare professionals treat perinatal patient
 
 ## Release Notes
 
+### Release v0.3.0
+
+#### Features
+
+- Users can now use the frontend functionality for the Contact Us screen
+- Users can create a new screening
+- Users can select between the five disorders to screen for
+- There is a UI component for screening each disorder
+
+#### Bug Fixes
+
+- Fixed bugs regarding scrolling while the keyboard is open
+- Fixed the keyboard dismissal on login screen, recover password screen, and register screen
+- Screen fits on all screen sizes
+
+#### Known Issues
+
+- No backend functionality for Contact Us
+- Users can't see their choice in the screening tool after selection
+- No backend functionality for screening tool
+
 ### Release v0.2.0
 
 #### Features
