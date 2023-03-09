@@ -44,6 +44,7 @@ export const ScreeningTypeScreen = () => {
               <Select.Item label="Postnatal Depression" value="depression" />
               <Select.Item label="Birth Trauma" value="birth_trauma" />
               <Select.Item label="GAD Anxiety" value="GAD_anxiety" />
+              <Select.Item label="Perinatal Anxiety" value="perinatal_anxiety"/>
             </Select>
           </Box>
         </Center>
