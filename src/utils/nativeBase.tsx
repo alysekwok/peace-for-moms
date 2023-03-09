@@ -1,6 +1,17 @@
 import { extendTheme } from "native-base";
 
-const primary = {};
+const primary = {
+  50: "#efe8fc",
+  100: "#cebbf7",
+  200: "#ad8df1",
+  300: "#8d5fec",
+  400: "#6c32e7",
+  500: "#5218cd",
+  600: "#4013a0",
+  700: "#2e0e72",
+  800: "#1b0844",
+  900: "#090317",
+};
 
 const secondary = {};
 
@@ -8,18 +19,7 @@ const tertiary = {};
 
 export const theme = extendTheme({
   colors: {
-    primary: {
-      50: "#efe8fc",
-      100: "#cebbf7",
-      200: "#ad8df1",
-      300: "#8d5fec",
-      400: "#6c32e7",
-      500: "#5218cd",
-      600: "#4013a0",
-      700: "#2e0e72",
-      800: "#1b0844",
-      900: "#090317",
-    },
+    primary,
     secondary,
     tertiary,
   },
@@ -65,18 +65,31 @@ export const theme = extendTheme({
       variants: {
         solid: () => ({
           borderRadius: 50,
-          paddingBottom: 4,
-          paddingTop: 4,
-          paddingLeft: 8,
-          paddingRight: 8,
+          paddingBottom: 2,
+          paddingTop: 2,
+          paddingLeft: 5,
+          paddingRight: 5,
           backgroundColor: "primary.400",
           _pressed: { backgroundColor: "primary.500" },
         }),
         ghost: () => ({
-          padding: 4,
+          padding: 2,
           _pressed: { backgroundColor: "gray.200" },
           _text: { color: "primary.400" },
         }),
+        outline: () => ({
+          borderRadius: 50,
+          paddingBottom: 2,
+          paddingTop: 2,
+        }),
+        big: () => ({
+          borderRadius: 50,
+          backgroundColor: "primary.400",
+          paddingBottom: 4,
+          paddingTop: 4,
+          _pressed: { backgroundColor: "primary.500" },
+          _text: { color:"white" }
+        })
       },
     },
   },

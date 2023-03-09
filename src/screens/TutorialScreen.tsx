@@ -1,13 +1,12 @@
 import React from "react";
 import { Layout } from "../components/Layout";
 import {
-  Button,
   Text,
-  HStack,
   VStack,
   Heading,
   Box,
   Divider,
+  Link,
 } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
@@ -24,9 +23,7 @@ export const TutorialScreen = () => {
   return (
     <Layout paddingTop={7}>
       <VStack space={5} alignItems="center" paddingBottom={20}>
-        <HStack space={120}>
-          <Button onPress={() => navigate("Contact")}>Contact Us</Button>
-        </HStack>
+  
         <Box
           p="3.5"
           bg="yellow.100"
@@ -44,8 +41,10 @@ export const TutorialScreen = () => {
             Screen a patient:
           </Text>
           <Text variant="contrastBody">
-            On the Home page, select "Screening Tool." Here, you can select mental health illnesses to screen for, and then select symptoms your patient is facing. When you submit you
-            will receive possible diagnoses and treatments.
+            On the Home page, select "Screening Tool." Here, you can select
+            mental health illnesses to screen for, and then select symptoms your
+            patient is facing. When you submit you will receive possible
+            diagnoses and treatments.
           </Text>
           <Divider my="3" />
           <Text bold variant="contrastSubHeading">
@@ -53,9 +52,10 @@ export const TutorialScreen = () => {
           </Text>
           <Text variant="contrastBody">
             Select "Contact Us" on the Home page or after receiving a diagnosis
-            for information to reach a Peace for Moms professional directly.
+            for information to reach a Peace for Moms professional directly, or click <Link onPress={() => navigate("TabRouter", { screen: "Contact" })}>here</Link>
           </Text>
         </Box>
+    
       </VStack>
     </Layout>
   );
