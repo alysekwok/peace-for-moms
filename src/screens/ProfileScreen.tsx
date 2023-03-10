@@ -5,7 +5,8 @@ import {
   FormControl,
   View,
   Image,
-  Text
+  Text,
+  Button
 } from "native-base";
 import { Keyboard, TouchableWithoutFeedback } from "react-native";
 import { Layout } from "../components/Layout";
@@ -24,9 +25,7 @@ export const ProfileScreen = () => {
             <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
               <Text>Currently signed in as</Text>
             </Card>
-            <Card style={{ borderRadius: 8, backgroundColor: "#D9D9D9" }}>
-              <Text>View saved diagnoses</Text>
-            </Card>
+            <Button>View saved diagnoses</Button>
             <VStack space={2}>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 1 }}></View>
