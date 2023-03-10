@@ -99,7 +99,7 @@ export const ScreeningScreen = ({ route }) => {
                   ? alphabet[remainingNumber]
                   : "") +
                 ". " +
-                questions[questionNumber].precept +
+                questions[questionNumber].precept + " " +
                 questions[questionNumber].remaining[remainingNumber]
               : ""}
           </Text>
@@ -116,7 +116,7 @@ export const ScreeningScreen = ({ route }) => {
                   <Text textAlign="center" color="white">
                     {answer}
                   </Text>
-                </Button>
+                </Button> 
               )
             )
           ) : (

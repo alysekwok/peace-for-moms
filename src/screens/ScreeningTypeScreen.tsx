@@ -40,7 +40,6 @@ export const ScreeningTypeScreen = () => {
               onValueChange={(itemValue) => setService(itemValue)}
             >
               <Select.Item label="Bipolar" value="bipolar" />
-              <Select.Item label="Anxiety" value="anxiety" />
               <Select.Item label="Postnatal Depression" value="depression" />
               <Select.Item label="Birth Trauma" value="birth_trauma" />
               <Select.Item label="GAD Anxiety" value="GAD_anxiety" />
