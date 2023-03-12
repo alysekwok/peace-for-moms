@@ -17,6 +17,7 @@ export type Question = {
 
 export const ScreeningScreen = ({ route }) => {
   /***************		HOOKS		***************/
+
   const { screeningType } = route.params;
   const questionsReference = ref(
     database,
@@ -24,44 +25,41 @@ export const ScreeningScreen = ({ route }) => {
   );
 
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [remainingNumber, setRemainingNumber] = useState(0);
   const [questions, setQuestions] = useState([]);
+  const [answerArray, setAnswerArray] = useState([]);
 
   const { navigate, goBack } = useNavigation();
-
-  /***************		VARIABLES		***************/
-
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
   /***************		FUNCTIONS		***************/
 
   const handleBack = () => {
-    if (remainingNumber === 0) {
-      if (questionNumber > 0) {
-        setRemainingNumber(questions[questionNumber - 1].remaining.length - 1);
-        setQuestionNumber(questionNumber - 1);
-      } else {
-        goBack();
-      }
+    if (questionNumber === 0) {
+      goBack();
     } else {
-      setRemainingNumber(remainingNumber - 1);
+      setQuestionNumber(questionNumber - 1);
     }
   };
 
   const handleNext = () => {
-    if (remainingNumber + 1 >= questions[questionNumber].remaining.length) {
+    if (answerArray.length > questionNumber) {
       if (questionNumber + 1 < (questions ? questions.length : 0)) {
         setQuestionNumber(questionNumber + 1);
-        setRemainingNumber(0);
       } else {
         //Navigate to next page
       }
-    } else {
-      setRemainingNumber(remainingNumber + 1);
     }
   };
 
+  const handleAnswer = (index) => {
+    setAnswerArray([
+      ...answerArray.slice(0, questionNumber),
+      index,
+      ...answerArray.slice(questionNumber + 1),
+    ]);
+  };
+
   /***************		EFFECTS		***************/
+
   if (questions.length === 0) {
     get(questionsReference).then((snapshot) => {
       if (snapshot.exists()) {
@@ -93,14 +91,9 @@ export const ScreeningScreen = ({ route }) => {
         >
           <Text bold variant="contrastSubHeading">
             {questions.length > 0
-              ? "" +
-                (questionNumber + 1) +
-                (questions[questionNumber].remaining.length > 1
-                  ? alphabet[remainingNumber]
-                  : "") +
+              ? questions[questionNumber].question_number +
                 ". " +
-                questions[questionNumber].precept +
-                questions[questionNumber].remaining[remainingNumber]
+                questions[questionNumber].question
               : ""}
           </Text>
           {questions.length > 0 ? (
@@ -110,6 +103,9 @@ export const ScreeningScreen = ({ route }) => {
                   borderColor="white"
                   borderWidth="2"
                   key={index}
+                  onPress={() => {
+                    handleAnswer(index);
+                  }}
                   alignSelf="stretch"
                   marginY={3}
                 >
@@ -131,7 +127,7 @@ export const ScreeningScreen = ({ route }) => {
           )}
         </Card>
 
-        <HStack space={20} justifyContent="space-evenly"  >
+        <HStack space={20} justifyContent="space-evenly">
           <Button onPress={handleBack}>Back</Button>
           <Button onPress={handleNext}>Next</Button>
         </HStack>
