@@ -6,6 +6,9 @@ import { get, ref } from "firebase/database";
 import { useNavigation } from "@react-navigation/native";
 import { BipolarCalc } from "../calc/BipolarCalc";
 import { BirthTraumaCalc } from "../calc/BirthTraumaCalc";
+import { perinatalAnxietyCalc } from "../calc/perinatalAnxietyCalc";
+import { gadCalc } from "../calc/gadCalc";
+import { depressionCalc } from "../calc/depressionCalc";
 
 export type ScreeningScreenProps = {
   screeningType: String;
@@ -65,13 +68,13 @@ export const ScreeningScreen = ({ route }) => {
       case "bipolar":
         return BipolarCalc(answerArray);
       case "depression":
-        return BipolarCalc(answerArray);
+        return depressionCalc(answerArray);
       case "birth_trauma":
         return BirthTraumaCalc(answerArray);
       case "GAD_anxiety":
-        return BipolarCalc(answerArray);
+        return gadCalc(answerArray);
       case "perinatal_anxiety":
-        return BipolarCalc(answerArray);
+        return perinatalAnxietyCalc(answerArray);
       default:
         return BipolarCalc(answerArray);
     }
