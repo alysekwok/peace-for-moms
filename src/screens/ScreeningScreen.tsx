@@ -4,6 +4,7 @@ import { Text, VStack, HStack, Button, Card } from "native-base";
 import { database } from "../firebase/config";
 import { get, ref } from "firebase/database";
 import { useNavigation } from "@react-navigation/native";
+import { BipolarCalc } from "../calc/BipolarCalc";
 
 export type ScreeningScreenProps = {
   screeningType: String;
@@ -58,6 +59,23 @@ export const ScreeningScreen = ({ route }) => {
     ]);
   };
 
+  const calculate = (answerArray) => {
+    switch (screeningType) {
+      case "bipolar":
+        return BipolarCalc(answerArray);
+      case "depression":
+        return BipolarCalc(answerArray);
+      case "birth_trauma":
+        return BipolarCalc(answerArray);
+      case "GAD_anxiety":
+        return BipolarCalc(answerArray);
+      case "perinatal_anxiety":
+        return BipolarCalc(answerArray);
+      default:
+        return BipolarCalc(answerArray);
+    }
+  };
+
   /***************		EFFECTS		***************/
 
   if (questions.length === 0) {
@@ -103,6 +121,7 @@ export const ScreeningScreen = ({ route }) => {
                   borderColor="white"
                   borderWidth="2"
                   key={index}
+                  isPressed={answerArray[questionNumber] === index}
                   onPress={() => {
                     handleAnswer(index);
                   }}
