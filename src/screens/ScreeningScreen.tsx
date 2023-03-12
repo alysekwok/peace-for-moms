@@ -5,6 +5,7 @@ import { database } from "../firebase/config";
 import { get, ref } from "firebase/database";
 import { useNavigation } from "@react-navigation/native";
 import { BipolarCalc } from "../calc/BipolarCalc";
+import { BirthTraumaCalc } from "../calc/BirthTraumaCalc";
 
 export type ScreeningScreenProps = {
   screeningType: String;
@@ -66,7 +67,7 @@ export const ScreeningScreen = ({ route }) => {
       case "depression":
         return BipolarCalc(answerArray);
       case "birth_trauma":
-        return BipolarCalc(answerArray);
+        return BirthTraumaCalc(answerArray);
       case "GAD_anxiety":
         return BipolarCalc(answerArray);
       case "perinatal_anxiety":

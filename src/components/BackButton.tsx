@@ -10,7 +10,13 @@ export const BackButton = () => {
     useNavigation<NativeStackNavigationProp<MainRouterParams>>();
   return (
     <IconButton
-      icon={<Icon color="primary.400" as={MaterialCommunityIcons} name="arrow-left" />}
+      icon={
+        <Icon
+          color="primary.400"
+          as={MaterialCommunityIcons}
+          name="arrow-left"
+        />
+      }
       onPress={() => goBack()}
       variant="ghost"
       padding={-3}
