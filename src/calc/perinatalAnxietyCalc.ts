@@ -3,7 +3,7 @@ export const perinatalAnxietyCalc = (answers: number[]) => {
   for (let i = 0; i < 31; i++) {
     sum += answers[i];
   }
-  if (sum >= 26) {
+  if (sum > 26) {
     return true;
   }
   return false;
