@@ -8,12 +8,12 @@ export const gadCalc = (answers: number[]) => {
             sum += answers[i];
         }
         if (sum >= 0 && sum <=4) {
-            minimalAnxiety = true;
+            return minimalAnxiety = true;
         } else if (sum >= 5 && sum <=9) {
-            mildAnxiety = true;
+            return mildAnxiety = true;
         } else if (sum >= 10 && sum <=14){
-            moderateAnxiety = true;
+            return moderateAnxiety = true;
         } else if (sum >= 15 && sum <=21){
-            severeAnxiety = true;
+            return severeAnxiety = true;
         }
     };
