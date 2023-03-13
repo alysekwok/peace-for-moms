@@ -24,17 +24,13 @@ export const Layout: React.FC<IProps> = ({
   /***************     JSX     ***************/
 
   return (
-    
-    <SafeAreaView
-      style={{ flex: 1, backgroundColor: "white" }}
-    >
-      <ScrollView>
-        <StatusBar barStyle="dark-content" />
-        <Stack flex={1} space={3} margin={3} {...rest} justifyContent="center">
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      <StatusBar barStyle="dark-content" />
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <Stack flexGrow={1} space={3} margin={3} {...rest} justifyContent="center">
           {children}
         </Stack>
-        </ScrollView>
+      </ScrollView>
     </SafeAreaView>
-    
   );
 };
