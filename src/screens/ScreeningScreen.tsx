@@ -5,7 +5,7 @@ import { database } from "../firebase/config";
 import { get, ref } from "firebase/database";
 import { useNavigation } from "@react-navigation/native";
 import { BipolarCalc } from "../calc/BipolarCalc";
-import { birthTraumaCalc, BirthTraumaCalc } from "../calc/birthTraumaCalc";
+import { birthTraumaCalc } from "../calc/birthTraumaCalc";
 import { perinatalAnxietyCalc } from "../calc/perinatalAnxietyCalc";
 import { gadCalc } from "../calc/gadCalc";
 import { depressionCalc } from "../calc/depressionCalc";
@@ -102,59 +102,64 @@ export const ScreeningScreen = ({ route }) => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Card bg="yellow.100" alignItems="center" borderRadius={30}>
-          <Text textAlign="center" variant="blurb">
-            Please check the answer that is right for you:
-          </Text>
-        </Card>
-        <Card
-          alignSelf="stretch"
-          alignItems="center"
-          bg="primary.400"
-          borderRadius={30}
-        >
-          <Text bold variant="contrastSubHeading">
-            {questions.length > 0
-              ? questions[questionNumber].question_number +
-                ". " +
-                questions[questionNumber].question
-              : ""}
-          </Text>
-          {questions.length > 0 ? (
-            questions[questionNumber].answers.map(
-              (answer: String, index: number) => (
-                <Button
-                  borderColor="white"
-                  borderWidth="2"
-                  key={index}
-                  isPressed={answerArray[questionNumber] === index}
-                  onPress={() => {
-                    handleAnswer(index);
-                  }}
-                  alignSelf="stretch"
-                  marginY={3}
-                >
-                  <Text textAlign="center" color="white">
-                    {answer}
-                  </Text>
-                </Button>
+        <VStack flex={1} alignItems="center" space={5}>
+          <Card bg="yellow.100" alignItems="center" borderRadius={30}>
+            <Text textAlign="center" variant="blurb">
+              Please check the answer that is right for you:
+            </Text>
+          </Card>
+          <Card
+            alignSelf="stretch"
+            alignItems="center"
+            bg="primary.400"
+            borderRadius={30}
+          >
+            <Text bold variant="contrastSubHeading">
+              {questions.length > 0
+                ? questions[questionNumber].question_number +
+                  ". " +
+                  questions[questionNumber].question
+                : ""}
+            </Text>
+            {questions.length > 0 ? (
+              questions[questionNumber].answers.map(
+                (answer: String, index: number) => (
+                  <Button
+                    borderColor="white"
+                    borderWidth="2"
+                    key={index}
+                    isPressed={answerArray[questionNumber] === index}
+                    onPress={() => {
+                      handleAnswer(index);
+                    }}
+                    alignSelf="stretch"
+                    marginY={3}
+                  >
+                    <Text textAlign="center" color="white">
+                      {answer}
+                    </Text>
+                  </Button>
+                )
               )
-            )
-          ) : (
-            <Button
-              textAlign="center"
-              borderColor="white"
-              borderWidth="2"
-              marginTop={5}
-              height="55"
-              width="180"
-            />
-          )}
-        </Card>
-
-        <HStack space={20} justifyContent="space-evenly">
-          <Button onPress={handleBack}>Back</Button>
-          <Button onPress={handleNext}>Next</Button>
+            ) : (
+              <Button
+                textAlign="center"
+                borderColor="white"
+                borderWidth="2"
+                marginTop={5}
+                height="55"
+                width="180"
+              />
+            )}
+          </Card>
+        </VStack>
+        <HStack space={5} justifyContent="space-evenly">
+          <Button flex={1} paddingY={5} onPress={handleBack}>
+            Back
+          </Button>
+          <Button flex={1} onPress={handleNext}>
+            Next
+          </Button>
         </HStack>
       </VStack>
     </Layout>
