@@ -62,6 +62,7 @@ export const ScreeningScreen = ({ route }) => {
       ...answerArray.slice(questionNumber + 1),
     ];
     setAnswerArray(newAnswerArray);
+    console.log(newAnswerArray);
   };
 
   const calculate = (answerArray) => {
