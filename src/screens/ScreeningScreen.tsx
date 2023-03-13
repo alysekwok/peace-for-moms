@@ -5,7 +5,7 @@ import { database } from "../firebase/config";
 import { get, ref } from "firebase/database";
 import { useNavigation } from "@react-navigation/native";
 import { BipolarCalc } from "../calc/BipolarCalc";
-import { birthTraumaCalc, BirthTraumaCalc } from "../calc/birthTraumaCalc";
+import { birthTraumaCalc, BirthTraumaCalc } from "../calc/xirthTraumaCalc";
 import { perinatalAnxietyCalc } from "../calc/perinatalAnxietyCalc";
 import { gadCalc } from "../calc/gadCalc";
 import { depressionCalc } from "../calc/depressionCalc";
