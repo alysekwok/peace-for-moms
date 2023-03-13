@@ -24,6 +24,7 @@ A mobile application that helps healthcare professionals treat perinatal patient
 - No backend functionality for Contact Us
 - Users can't see their choice in the screening tool after selection
 - No backend functionality for screening tool
+- What date was your baby born question from the birth trauma screening isn't shown on the screen
 
 ### Release v0.2.0
 
