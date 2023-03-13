@@ -5,10 +5,10 @@ import { database } from "../firebase/config";
 import { get, ref } from "firebase/database";
 import { useNavigation } from "@react-navigation/native";
 import { BipolarCalc } from "../calc/BipolarCalc";
-import { birthTraumaCalc, BirthTraumaCalc } from "../calc/birthTraumaCalc";
-import { perinatalAnxietyCalc } from "../calc/perinatalAnxietyCalc";
-import { gadCalc } from "../calc/gadCalc";
-import { depressionCalc } from "../calc/depressionCalc";
+import { BirthTraumaCalc } from "../calc/BirthTraumaCalc";
+import { PerinatalAnxietyCalc } from "../calc/PerinatalAnxietyCalc";
+import { GadCalc } from "../calc/GadCalc";
+import { DepressionCalc } from "../calc/DepressionCalc";
 
 export type ScreeningScreenProps = {
   screeningType: String;
@@ -70,13 +70,13 @@ export const ScreeningScreen = ({ route }) => {
       case "bipolar":
         return BipolarCalc(answerArray);
       case "depression":
-        return depressionCalc(answerArray);
+        return DepressionCalc(answerArray);
       case "birth_trauma":
-        return birthTraumaCalc(answerArray);
+        return BirthTraumaCalc(answerArray);
       case "GAD_anxiety":
-        return gadCalc(answerArray);
+        return GadCalc(answerArray);
       case "perinatal_anxiety":
-        return perinatalAnxietyCalc(answerArray);
+        return PerinatalAnxietyCalc(answerArray);
       default:
         return BipolarCalc(answerArray);
     }
