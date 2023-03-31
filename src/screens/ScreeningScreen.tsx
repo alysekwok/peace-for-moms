@@ -9,6 +9,7 @@ import { BirthTraumaCalc } from "../calc/BirthTraumaCalc";
 import { PerinatalAnxietyCalc } from "../calc/PerinatalAnxietyCalc";
 import { GadCalc } from "../calc/GadCalc";
 import { DepressionCalc } from "../calc/DepressionCalc";
+import { ProgressBar } from "../components/ProgressBar";
 
 export type ScreeningScreenProps = {
   screeningType: String;
@@ -102,6 +103,11 @@ export const ScreeningScreen = ({ route }) => {
         alignItems="center"
         justifyContent="space-between"
       >
+        <ProgressBar
+          color="primary.500"
+          backgroundColor="gray.300"
+          progress={questions.length > 0 ? questionNumber / questions.length : 0}
+        />
         <VStack flex={1} alignItems="center" space={5}>
           <Card bg="yellow.100" alignItems="center" borderRadius={30}>
             <Text textAlign="center" variant="blurb">
