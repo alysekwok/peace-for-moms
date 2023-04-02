@@ -13,14 +13,7 @@ import {
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { BipolarCalc } from "../calc/BipolarCalc";
-import { BirthTraumaCalc } from "../calc/BirthTraumaCalc";
-import { PerinatalAnxietyCalc } from "../calc/PerinatalAnxietyCalc";
-import { GadCalc } from "../calc/GadCalc";
-import { DepressionCalc } from "../calc/DepressionCalc";
-import { ScreeningScreen } from "./ScreeningScreen";
 import { useRoute } from "@react-navigation/native";
-
 
 
 export const ResultsScreen = () => {
@@ -37,8 +30,9 @@ export const ResultsScreen = () => {
   return (
     <Layout>
       <VStack space={8} alignItems="center" justifyContent="center">
-        <Heading textAlign="center">Screening Results</Heading>
-    
+        <Heading textAlign="center">{route.params.result[0]}</Heading>
+        <Text>Your score: {route.params.result[1]}</Text>
+        <Text>{route.params.result[2]}</Text>
       </VStack>
     </Layout>
   );
