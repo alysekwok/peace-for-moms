@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Layout } from "../components/Layout";
 import { Text, VStack, HStack, Button, Card } from "native-base";
 import { database } from "../firebase/config";
@@ -10,6 +10,7 @@ import { PerinatalAnxietyCalc } from "../calc/PerinatalAnxietyCalc";
 import { GadCalc } from "../calc/GadCalc";
 import { DepressionCalc } from "../calc/DepressionCalc";
 import { ProgressBar } from "../components/ProgressBar";
+
 
 export type ScreeningScreenProps = {
   screeningType: String;
@@ -29,12 +30,15 @@ export const ScreeningScreen = ({ route }) => {
     database,
     `screening_tools/${screeningType}/questions`
   );
-
+  // const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+  const [points, setPoints] = useState(0);
+  const [answerStatus, setAnswerStatus] = useState(null);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [answerArray, setAnswerArray] = useState([]);
 
   const { navigate, goBack } = useNavigation();
+  const navigation = useNavigation();
 
   /***************		FUNCTIONS		***************/
 
@@ -51,10 +55,12 @@ export const ScreeningScreen = ({ route }) => {
       if (questionNumber + 1 < (questions ? questions.length : 0)) {
         setQuestionNumber(questionNumber + 1);
       } else {
-        //Navigate to next page
-      }
+        navigate("Results" as never, {
+          result: calculate(answerArray)
+      } as never)
     }
-  };
+  }
+}
 
   const handleAnswer = (index) => {
     const newAnswerArray = [
@@ -160,18 +166,30 @@ export const ScreeningScreen = ({ route }) => {
             )}
           </Card>
         </VStack>
-        <HStack space={5} justifyContent="space-evenly">
+        <HStack space={5} justifyContent="space-around">
           <Button
             flex={1}
-            paddingY={5}
+            paddingY={3}
             onPress={handleBack}
             isDisabled={questionNumber === 0}
           >
             Back
           </Button>
-          <Button flex={1} onPress={handleNext}>
+
+          {questionNumber + 1 < (questions ? questions.length : 0) ? (
+          <Button flex={1}
+            onPress={handleNext}>
             Next
           </Button>
+          ) : ( <Button
+            flex={1}
+            onPress={handleNext}>
+           Done
+          </Button>
+          )
+
+          }
+          
         </HStack>
       </VStack>
     </Layout>
