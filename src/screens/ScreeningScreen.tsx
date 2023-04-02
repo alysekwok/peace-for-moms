@@ -98,36 +98,6 @@ export const ScreeningScreen = ({ route }) => {
     });
   }
 
-  // useEffect(() => {
-  //   if (questionNumber !== null) {
-  //     if (questionNumber === currentQuestion?.correctAnswerIndex) {
-  //       setPoints((points) => points + 10);
-  //       setAnswerStatus(true);
-  //       answerArray.push({ question: index + 1, answer: true });
-  //     } else {
-  //       setAnswerStatus(false);
-  //       answerArray.push({ question: index + 1, answer: false });
-  //     }
-  //   }
-  // }, [questionNumber]);
-
-  // useEffect(() => {
-  //   setQuestionNumber(null);
-  //   setAnswerStatus(null);
-  // }, [index]);
-
-
-  // useEffect(() => {
-  //   if (questionNumber + 1 > questions.length) {
-  //     navigate("Results", {
-  //       answerArray: answerArray,
-  //       screeningType: screeningType,
-  //     });
-  //   }
-  // }, [questionNumber]);
-
-
-
   /***************		JSX		***************/
 
   return (
