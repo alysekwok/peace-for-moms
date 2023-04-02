@@ -8,11 +8,27 @@ import {
   Text,
   Button
 } from "native-base";
-import { Keyboard, TouchableWithoutFeedback } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { Keyboard, TextInput, TouchableWithoutFeedback } from "react-native";
 import { Layout } from "../components/Layout";
+import { auth } from "../firebase/config";
+
 
 export const ProfileScreen = () => {
   const image = require("../images/p4m-profile.png");
+  const [emailName, setemailName] = useState('');
+    useEffect(() => {
+
+      const userName = auth.currentUser;
+    
+      if (userName){
+
+      const userEmail = userName.email;
+      setemailName(userEmail);
+      } else {
+      console.error("User not signed in at the moment")
+      }
+    },[]);
 
   /***************		JSX		***************/
 
@@ -21,10 +37,18 @@ export const ProfileScreen = () => {
       <Layout>
         <FormControl isRequired>
           <VStack space={5} paddingTop={10}>
-            <Heading textAlign="center">Profile</Heading>
+            <Heading textAlign="center">Profile Information</Heading>
             <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
-              <Text>Currently signed in as</Text>
+              <Text>Name:</Text>
             </Card>
+            <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
+              <Text>Phone Number:</Text>
+            </Card>
+            <View>
+            <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
+              <Text>Email: {emailName}</Text>
+            </Card>
+            </View>
             <Button>View saved diagnoses</Button>
             <VStack space={2}>
               <View style={{ flexDirection: "row" }}>
