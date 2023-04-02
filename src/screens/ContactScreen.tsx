@@ -14,9 +14,10 @@ import {
   Link,
 } from "native-base";
 import React, { useState } from "react";
-import { Keyboard, TouchableWithoutFeedback } from "react-native";
+import { Keyboard, TouchableWithoutFeedback, Linking } from "react-native";
 import { Layout } from "../components/Layout";
 import { MainRouterParams } from "../routers/MainRouter";
+import { sendEmail } from "../email/send-email";
 
 export const ContactScreen = () => {
   /***************		HOOKS		***************/
@@ -76,7 +77,14 @@ export const ContactScreen = () => {
 
   const onSubmit = () => {
     validate()
-      ? console.log("Form successfully submitted")
+      ? sendEmail(
+          "seohyunh284@gmail.com",
+          `${formData.subject}`,
+          `From: ${formData.name}\n-----------------\n${formData.message}`
+        ).then(() => {
+          console.log("Message sent");
+          setData({...formData, name: '', email: '', subject: '', message: ''});
+        })
       : console.log("Form invalid");
   };
 
