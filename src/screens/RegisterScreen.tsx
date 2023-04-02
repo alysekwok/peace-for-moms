@@ -10,12 +10,14 @@ import {
   HStack,
   KeyboardAvoidingView,
 } from "native-base";
-import { auth } from "../firebase/config";
+import { auth, database } from "../firebase/config";
 import { Platform, TextInput } from "react-native";
 import { useAppDispatch } from "../store";
 import { setAuthState } from "../store/slices/AuthSlice";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { CheckBox } from "../components/Checkbox";
+import { ref, set } from "firebase/database";
+import { Profile } from "../types/Profile";
 
 export function RegisterScreen() {
   /***************		HOOKS		***************/
@@ -51,10 +53,21 @@ export function RegisterScreen() {
           .then((userCredential) => {
             const user = userCredential.user;
             dispatch(setAuthState({ user: user, isAuthenticated: true }));
+            createProfile(user.uid, {
+              email: user.email,
+              first_name: "",
+              last_name: "",
+              phone_number: "",
+            });
           })
           .catch((error) => alert(error.message));
       }
     }
+  };
+
+  const createProfile = (uid: String, profile: Profile) => {
+    let reference = ref(database, `users/${uid}`);
+    set(reference, profile);
   };
 
   /***************		JSX		***************/
