@@ -9,6 +9,7 @@ import { NavigatorScreenParams } from "@react-navigation/native";
 import { Header } from "../components/Header";
 import { BackButton } from "../components/BackButton";
 import { ContactScreen } from "../screens/ContactScreen";
+import { ResultsScreen } from "../screens/ResultsScreen";
 
 export type MainRouterParams = {
   TabRouter: NavigatorScreenParams<TabRouterParams>;
@@ -17,6 +18,7 @@ export type MainRouterParams = {
   Screening: ScreeningScreenProps;
   Emergency: undefined;
   Contact: undefined;
+  Results: undefined;
 };
 
 const Stack = createNativeStackNavigator<MainRouterParams>();
@@ -42,6 +44,7 @@ export const MainRouter = () => {
       <Stack.Screen name="Screener" component={ScreeningTypeScreen} />
       <Stack.Screen name="Screening" component={ScreeningScreen} />
       <Stack.Screen name="Contact" component={ContactScreen} />
+      <Stack.Screen name="Results" component={ResultsScreen} />
 
     </Stack.Navigator>
   );

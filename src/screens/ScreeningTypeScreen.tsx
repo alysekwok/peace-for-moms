@@ -23,7 +23,7 @@ export const ScreeningTypeScreen = () => {
   /***************		JSX		***************/
   return (
     <Layout>
-      <VStack space={8} alignItems="center" justifyContent="center" pt={20}>
+      <VStack space={8} alignItems="center" justifyContent="center">
         <Heading textAlign="center">What are you screening for?</Heading>
         <Center>
           <Box maxW="300">

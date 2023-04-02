@@ -4,7 +4,8 @@ export const DepressionCalc = (answers: number[]) => {
         sum += answers[i];
     }; 
     if (sum >= 12) {
-        return true;
+        // return true;
+        return "Mothers scoring above 12 or 13 are likely to be suffering from depression and should seek medical attention.";
     } else {
         return false;
     }
