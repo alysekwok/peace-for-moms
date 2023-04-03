@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Card,
   Heading,
@@ -8,27 +9,35 @@ import {
   Text,
   Button
 } from "native-base";
+import firebase from 'firebase/app';
+import 'firebase/database';
 import React, { useEffect, useRef, useState } from "react";
 import { Keyboard, TextInput, TouchableWithoutFeedback } from "react-native";
 import { Layout } from "../components/Layout";
-import { auth } from "../firebase/config";
+import { database, auth } from "../firebase/config";
+import { ref, set, get } from "firebase/database";
 
 
 export const ProfileScreen = () => {
   const image = require("../images/p4m-profile.png");
-  const [emailName, setemailName] = useState('');
-    useEffect(() => {
+  // const [emailName, setemailName] = useState('');
+  //   // useEffect(() => {
 
-      const userName = auth.currentUser;
+  //     const userName = auth.currentUser
+      
     
-      if (userName){
+  //     if (userName){
 
-      const userEmail = userName.email;
-      setemailName(userEmail);
-      } else {
-      console.error("User not signed in at the moment")
-      }
-    },[]);
+  //     const userEmail = userName.email;
+  //     setemailName(userEmail);
+  //     } else {
+  //     console.error("User not signed in at the moment")
+  //     }
+  //   // },[]);
+
+  const uid = auth.currentUser.uid;
+  const reference = ref(database, `/users/${uid}`);
+  const emailName = get(reference)
 
   /***************		JSX		***************/
 
@@ -46,7 +55,7 @@ export const ProfileScreen = () => {
             </Card>
             <View>
             <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
-              <Text>Email: {emailName}</Text>
+              <Text>Email: {emailName.email}</Text>
             </Card>
             </View>
             <Button>View saved diagnoses</Button>
