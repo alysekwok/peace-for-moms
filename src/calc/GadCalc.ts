@@ -11,12 +11,14 @@ export const GadCalc = (answers: number[]) => {
             sum += answers[i];
         }
         if (sum >= 0 && sum <=4) {
-            return [name, sum , minimalAnxiety];
+            return [name, sum, minimalAnxiety];
         } else if (sum >= 5 && sum <=9) {
             return [name, sum, mildAnxiety];
         } else if (sum >= 10 && sum <=14){
             return [name, sum, moderateAnxiety];
         } else if (sum >= 15 && sum <=21){
             return [name, sum, severeAnxiety];
+        } else {
+            return [name, sum, "No result"]
         }
     };
