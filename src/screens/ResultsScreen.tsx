@@ -28,9 +28,9 @@ const image = require("../images/peace4moms-1.png");
   return (
     <Layout>
       <VStack space={8} alignItems="center" justifyContent="center">
-        <Heading padding={2} textAlign="center">{route.params.result[0]}</Heading>
+        <Heading padding={2} textAlign="center">{route?.params?.result[0]}</Heading>
 
-        <Text>Your score: {route.params.result[1]}</Text>
+        <Text>Your score: {route?.params?.result[1]}</Text>
         <Box
          p="3.5"
          bg="yellow.100"
@@ -38,11 +38,12 @@ const image = require("../images/peace4moms-1.png");
          borderRadius={30}
          justifyContent="center"
          >
-            <Text textAlign="center" >{route.params.result[2]}</Text>
+            <Text textAlign="center" >{route?.params?.result[2]}</Text>
         </Box>
         <Box padding={5} alignItems="center">
             <Text>Disclaimer: The PEACE for Moms mobile application does NOT save your screening results. Please screenshot this screen for your records if you would like to keep the results.</Text>
         </Box>
+        {/* to be fixed: */}
         {/* <Image
           alignSelf="center"
           source={image}
