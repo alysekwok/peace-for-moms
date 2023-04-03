@@ -7,7 +7,7 @@ const severeAnxiety = "Your patient has severe anxiety";
 
 export const GadCalc = (answers: number[]) => {
     let sum = 0;
-        for (let i = 0; i <= 12; i++) {
+        for (let i = 0; i < answers.length; i++) {
             sum += answers[i];
         }
         if (sum >= 0 && sum <=4) {
