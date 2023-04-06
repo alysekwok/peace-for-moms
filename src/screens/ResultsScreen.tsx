@@ -3,7 +3,8 @@ import { Layout } from "../components/Layout";
 import {
   VStack,
   Heading,
-  Text
+  Text,
+  Button
 } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
@@ -28,6 +29,7 @@ export const ResultsScreen = () => {
         <Heading textAlign="center">{route.params.result[0]}</Heading>
         <Text>Your score: {route.params.result[1]}</Text>
         <Text>{route.params.result[2]}</Text>
+        <Button onPress={() => navigate("Home")}>Go to home</Button>
       </VStack>
     </Layout>
   );
