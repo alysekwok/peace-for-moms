@@ -3,11 +3,6 @@ import { Layout } from "../components/Layout";
 import {
   VStack,
   Heading,
-  Button,
-  Box,
-  Select,
-  CheckIcon,
-  Center,
   Text
 } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
