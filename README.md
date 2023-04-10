@@ -4,6 +4,25 @@ A mobile application that helps healthcare professionals treat perinatal patient
 
 ## Release Notes
 
+### Release v0.4.0
+
+#### Features
+
+- Algorithms for calculating screening results
+- Users can now see their results after answering the screening questions
+- Users can see their progress through a progress bar while answering screening question
+- Functionality for the Contact Us page
+
+#### Bug Fixes
+
+- Users are now able to see their answer selection on screening tool
+- Submitting Contact Page will open mail app with all fields automatically filled in, and all fields now clear when form is submitted
+
+#### Known Issues
+
+- Screening results does not display results for the Birth Trauma Disorder screening 
+- More detailed screening results need to be added
+
 ### Release v0.3.0
 
 #### Features
