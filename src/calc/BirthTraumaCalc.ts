@@ -1,175 +1,128 @@
-interface BirthTraumaCalcResult {
-    symptomSubscales: {
-      reExperiencingSymptoms: number;
-      avoidanceSymptoms: number;
-      negativeConditionsAndMood: number;
-      hyperarousal: number;
-    };
-    totalPtsdSymptoms: number;
-    dissociativeSymptoms: number;
-    birthRelatedPtsdSymptoms: number;
-    generalPtsdSymptoms: number;
-    diagnosticCriteria: {
-      stressorCriterion: boolean;
-      reExperiencingSymptoms: boolean;
-      avoidanceSymptoms: boolean;
-      negativeConditionsAndMood: boolean;
-      hyperarousal: boolean;
-      duration: boolean;
-      distressAndImpairment: boolean;
-      exclusionCriteria: boolean;
-      ptsdWithDissociativeSymptoms: boolean;
-      ptsdWithDelayedOnset: boolean;
-    };
+export function BirthTraumaCalc(answers: number[]) {
+  const results = diagnosticCriteria(answers);
+  return ["Birth Trauma", "N/A", results.join(" ")];
+}
+
+function evaluateStressorCriterion(answers: number[]) {
+  return answers[0] == 1 || answers[1] == 1;
+}
+function scoreReExperiencingSymptoms(answers: number[]) {
+  const firstIndex = 2;
+  const lastIndex = 6;
+  let sum = 0;
+  for (let i = firstIndex; i <= lastIndex; i++) {
+    sum += answers[i];
   }
-  
-  export function BirthTraumaCalc(answers: number[]): BirthTraumaCalcResult {
-    return {
-      symptomSubscales: {
-        reExperiencingSymptoms: scoreReExperiencingSymptoms(answers),
-        avoidanceSymptoms: scoreAvoidanceSymptoms(answers),
-        negativeConditionsAndMood: scoreNegativeConditionsAndMood(answers),
-        hyperarousal: scoreHyperarousal(answers),
-      },
-      totalPtsdSymptoms: scoreTotalPtsdSymptoms(answers),
-      dissociativeSymptoms: scoreDissociativeSymptoms(answers),
-      birthRelatedPtsdSymptoms: scoreBirthRelatedPtsdSymptoms(answers),
-      generalPtsdSymptoms: scoreGeneralPtsdSymptoms(answers),
-      diagnosticCriteria: {
-        stressorCriterion: evaluateStressorCriterion(answers),
-        reExperiencingSymptoms: evaluateReExperiencingSymptoms(answers),
-        avoidanceSymptoms: evaluateAvoidanceSymptoms(answers),
-        negativeConditionsAndMood: evaluateNegativeConditionsAndMood(answers),
-        hyperarousal: evaluateHyperarousal(answers),
-        ptsdWithDissociativeSymptoms: evaluatePtsdWithDissociativeSymptoms(answers),
-        duration: evaluateDuration(answers),
-        distressAndImpairment: evaluateDistressAndImpairment(answers),
-        exclusionCriteria: evaluateExclusionCriteria(answers),
-        ptsdWithDelayedOnset: evaluatePtsdWithDelayedOnset(answers),
-      },
-    };
+  return sum;
+}
+
+function evaluateReExperiencingSymptoms(answers: number[]) {
+  return scoreReExperiencingSymptoms(answers) >= 1;
+}
+
+function scoreAvoidanceSymptoms(answers: number[]) {
+  const firstIndex = 7;
+  const lastIndex = 8;
+  let sum = 0;
+  for (let i = firstIndex; i <= lastIndex; i++) {
+    sum += answers[i];
   }
-  
-  function evaluateStressorCriterion(answers: number[]) {
-    return answers[0] == 1 || answers[1] == 1;
-  }
-  function scoreReExperiencingSymptoms(answers: number[]) {
-    const firstIndex = 2;
-    const lastIndex = 6;
-    let sum = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      sum += answers[i];
+  return sum;
+}
+function evaluateAvoidanceSymptoms(answers: number[]) {
+  return scoreAvoidanceSymptoms(answers) >= 1;
+}
+
+function evaluateNegativeConditionsAndMood(answers: number[]) {
+  const firstIndex = 9;
+  const lastIndex = 15;
+  let count = 0;
+  for (let i = firstIndex; i <= lastIndex; i++) {
+    if (answers[i] > 0) {
+      count++;
     }
-    return sum;
   }
-  
-  function evaluateReExperiencingSymptoms(answers: number[]) {
-    return scoreReExperiencingSymptoms(answers) >= 1;
-  }
-  
-  function scoreAvoidanceSymptoms(answers: number[]) {
-    const firstIndex = 7;
-    const lastIndex = 8;
-    let sum = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      sum += answers[i];
+  return count >= 2;
+}
+
+function evaluateHyperarousal(answers: number[]) {
+  const firstIndex = 16;
+  const lastIndex = 21;
+  let count = 0;
+  for (let i = firstIndex; i <= lastIndex; i++) {
+    if (answers[i] > 0) {
+      count++;
     }
-    return sum;
   }
-  function evaluateAvoidanceSymptoms(answers: number[]) {
-    return scoreAvoidanceSymptoms(answers) >= 1;
+  return count >= 2;
+}
+
+function scoreDissociativeSymptoms(answers: number[]) {
+  const firstIndex = 22;
+  const lastIndex = 23;
+  let sum = 0;
+  for (let i = firstIndex; i <= lastIndex; i++) {
+    sum += answers[i];
   }
-  
-  function scoreNegativeConditionsAndMood(answers: number[]) {
-    const firstIndex = 9;
-    const lastIndex = 15;
-    let sum = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      sum += answers[i];
-    }
-    return sum;
+  return sum;
+}
+function evaluatePtsdWithDissociativeSymptoms(answers: number[]) {
+  return scoreDissociativeSymptoms(answers) >= 1;
+}
+function evaluateDuration(answers: number[]) {
+  return answers[25] >= 1;
+}
+function evaluateDistressAndImpairment(answers: number[]) {
+  const sum = answers[26] + answers[27];
+  return sum >= 1;
+}
+function evaluateExclusionCriteria(answers: number[]) {
+  return answers[28] >= 1;
+}
+function evaluatePtsdWithDelayedOnset(answers: number[]) {
+  return answers[24] === 2;
+}
+function evaluatePtsdWithNewIncidence(answers: number[]) {
+  return answers[24] === 0;
+}
+
+function diagnosticCriteria(answers: number[]) {
+  const results: string[] = [];
+  if (evaluateStressorCriterion(answers)) {
+    results.push("The patient is in stressor criterion.");
   }
-  
-  function evaluateNegativeConditionsAndMood(answers: number[]) {
-    const firstIndex = 9;
-    const lastIndex = 15;
-    let count = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      if (answers[i] > 0) {
-        count++;
-      }
-    }
-    return count >= 2;
+  if (evaluateReExperiencingSymptoms(answers)) {
+    results.push("The patient shows the re-experiencing symptoms.");
   }
-  function scoreHyperarousal(answers: number[]) {
-    const firstIndex = 16;
-    const lastIndex = 21;
-    let sum = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      sum += answers[i];
-    }
-    return sum;
+  if (evaluateAvoidanceSymptoms(answers)) {
+    results.push("The patient shows the avoidance symptoms.");
   }
-  function evaluateHyperarousal(answers: number[]) {
-    const firstIndex = 16;
-    const lastIndex = 21;
-    let count = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      if (answers[i] > 0) {
-        count++;
-      }
-    }
-    return count >= 2;
+  if (evaluateNegativeConditionsAndMood(answers)) {
+    results.push("The patient has negative conditions and mood.");
   }
-  function scoreTotalPtsdSymptoms(answers: number[]) {
-    const firstIndex = 2;
-    const lastIndex = 21;
-    let sum = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      sum += answers[i];
-    }
-    return sum;
+  if (evaluateHyperarousal(answers)) {
+    results.push("The patient is in state of hyperarousal.");
   }
-  function scoreDissociativeSymptoms(answers: number[]) {
-    const firstIndex = 22;
-    const lastIndex = 23;
-    let sum = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      sum += answers[i];
-    }
-    return sum;
+  if (evaluateDuration(answers)) {
+    results.push("The patient is in duration.");
   }
-  function evaluatePtsdWithDissociativeSymptoms(answers: number[]) {
-    return scoreDissociativeSymptoms(answers) >= 1;
+  if (evaluateDistressAndImpairment(answers)) {
+    results.push("The patient shows symptoms of distress and impairment.");
   }
-  function scoreBirthRelatedPtsdSymptoms(answers: number[]) {
-    const firstIndex = 2;
-    const lastIndex = 11;
-    let sum = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      sum += answers[i];
-    }
-    return sum;
+  if (evaluateExclusionCriteria(answers)) {
+    results.push("Exclude the patient from diagnostic PTSD.");
   }
-  function scoreGeneralPtsdSymptoms(answers: number[]) {
-    const firstIndex = 12;
-    const lastIndex = 21;
-    let sum = 0;
-    for (let i = firstIndex; i <= lastIndex; i++) {
-      sum += answers[i];
-    }
-    return sum;
+  if (evaluatePtsdWithDissociativeSymptoms(answers)) {
+    results.push("The patient has PTSD with dissociative symptoms.");
   }
-  function evaluateDuration(answers: number[]){
-    return answers[25] >= 1;
+  if (evaluatePtsdWithDelayedOnset(answers)) {
+    results.push("The patient has PTSD with delayed onset.");
   }
-  function evaluateDistressAndImpairment(answers: number[]){
-    const sum = answers[26] + answers [27];
-    return sum >= 1;
-  } 
-  function evaluateExclusionCriteria(answers: number[]){
-    return answers[28] >= 1;
+  if (evaluatePtsdWithNewIncidence(answers)) {
+    results.push(
+      "PTSD prior to birth so is a measure of prevalence rather than new incidence of PTSD due to birth."
+    );
   }
-  function evaluatePtsdWithDelayedOnset(answers: number[]) {
-    return answers[24] === 2;
-  }
+
+  return results;
+}

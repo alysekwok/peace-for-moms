@@ -11,7 +11,6 @@ import { GadCalc } from "../calc/GadCalc";
 import { DepressionCalc } from "../calc/DepressionCalc";
 import { ProgressBar } from "../components/ProgressBar";
 
-
 export type ScreeningScreenProps = {
   screeningType: String;
 };
@@ -55,12 +54,15 @@ export const ScreeningScreen = ({ route }) => {
       if (questionNumber + 1 < (questions ? questions.length : 0)) {
         setQuestionNumber(questionNumber + 1);
       } else {
-        navigate("Results" as never, {
-          result: calculate(answerArray)
-      } as never)
+        navigate(
+          "Results" as never,
+          {
+            result: calculate(answerArray),
+          } as never
+        );
+      }
     }
-  }
-}
+  };
 
   const handleAnswer = (index) => {
     const newAnswerArray = [
@@ -177,19 +179,14 @@ export const ScreeningScreen = ({ route }) => {
           </Button>
 
           {questionNumber + 1 < (questions ? questions.length : 0) ? (
-          <Button flex={1}
-            onPress={handleNext}>
-            Next
-          </Button>
-          ) : ( <Button
-            flex={1}
-            onPress={handleNext}>
-           Done
-          </Button>
-          )
-
-          }
-          
+            <Button flex={1} onPress={handleNext}>
+              Next
+            </Button>
+          ) : (
+            <Button flex={1} onPress={handleNext}>
+              Done
+            </Button>
+          )}
         </HStack>
       </VStack>
     </Layout>
