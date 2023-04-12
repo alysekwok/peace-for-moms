@@ -26,10 +26,6 @@ export const theme = extendTheme({
       },
     },
   },
-  fonts: {
-    heading: "Alice-Regular"
-  },
-
   colors: {
     primary,
     secondary,
