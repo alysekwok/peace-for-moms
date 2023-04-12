@@ -2,7 +2,10 @@ import React from "react";
 import { MainRouter } from "./routers/MainRouter";
 import { UnauthRouter } from "./routers/UnauthRouter";
 import { useAppSelector } from "./store";
-import { ResultsScreen } from "./screens/ResultsScreen";
+import { useFonts, Alice_400Regular } from "@expo-google-fonts/alice";
+import {theme} from "./utils/nativeBase";
+import { NativeBaseProvider } from "native-base";
+
 
 export const MainApp = () => {
   /***************		HOOKS		***************/
@@ -11,6 +14,15 @@ export const MainApp = () => {
 
   /***************		JSX		***************/
 
+  let [fontsLoaded] = useFonts({
+    Alice_400Regular
+  });
 
-  return isAuthenticated ? <MainRouter /> : <UnauthRouter />;
+  if (!fontsLoaded) {
+    return <></>;
+  }
+  
+  return (<NativeBaseProvider theme={theme}>
+    {isAuthenticated ? <MainRouter /> : <UnauthRouter />}
+  </NativeBaseProvider>)
 };
