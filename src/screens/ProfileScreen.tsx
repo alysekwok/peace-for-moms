@@ -16,6 +16,7 @@ import { Keyboard, TextInput, TouchableWithoutFeedback } from "react-native";
 import { Layout } from "../components/Layout";
 import { database, auth } from "../firebase/config";
 import { ref, set, get } from "firebase/database";
+
 import { useAppSelector } from "../store";
 import { Profile } from "../types/Profile";
 
@@ -23,11 +24,23 @@ export const ProfileScreen = () => {
   /***************		HOOKS		***************/
 
   const image = require("../images/p4m-profile.png");
+
   const [profile, setProfile] = useState<Profile>({});
   const uid = useAppSelector((state) => state.Auth.user).uid;
   const reference = ref(database, `/users/${uid}`);
 
+  //     const userName = auth.currentUser
+
+
+  //     if (userName){
   /***************		EFFECTS		***************/
+
+  //     const userEmail = userName.email;
+  //     setemailName(userEmail);
+  //     } else {
+  //     console.error("User not signed in at the moment")
+  //     }
+  //   // },[]);
 
   if (!profile) {
     get(reference).then((snapshot) => {
