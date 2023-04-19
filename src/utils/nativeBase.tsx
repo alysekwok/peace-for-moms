@@ -1,4 +1,5 @@
 import { extendTheme } from "native-base";
+import { useFonts, Alice_400Regular } from "@expo-google-fonts/alice";
 
 const primary = {
   50: "#efe8fc",
@@ -18,6 +19,13 @@ const secondary = {};
 const tertiary = {};
 
 export const theme = extendTheme({
+  fontConfig: {
+    Alice: {
+      400: {
+        normal: "Alice_400Regular",
+      },
+    },
+  },
   colors: {
     primary,
     secondary,
@@ -33,6 +41,7 @@ export const theme = extendTheme({
     Heading: {
       defaultProps: {
         color: "black",
+        fontFamily: "Alice_400Regular",
       },
     },
     Text: {

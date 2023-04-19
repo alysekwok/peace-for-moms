@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
+    "@expo-google-fonts/alice": "^0.2.3",
     "@expo/vector-icons": "^13.0.0",
     "@firebase/database": "^0.13.10",
     "@react-native-community/masked-view": "^0.1.11",
@@ -22,6 +23,7 @@
     "@reduxjs/toolkit": "^1.9.0",
     "@types/react-native": "~0.70.6",
     "expo": "~47.0.6",
+    "expo-font": "~11.0.1",
     "expo-status-bar": "~1.4.2",
     "expo-updates": "~0.15.6",
     "firebase": "^9.16.0",

@@ -10,6 +10,7 @@ import {
   Center,
   Card,
   Text,
+  Divider,
 } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
@@ -90,10 +91,18 @@ export const ScreeningTypeScreen = () => {
           Next
         </Button>
         {service && (
-          <Card bg={"yellow.100"} alignItems="center" borderRadius={30}>
+          <Card borderRadius={30}>
+            <Card bg={"yellow.100"} alignItems="center" borderRadius={30} >
             <Text textAlign="center" color="black">
               {service ? descriptionMap.get(service) : ""}
             </Text>
+          </Card>
+          <Card>
+          <Text textAlign="center" color="black" pb={3}>By clicking the "Next" button on top, you will begin the screening process. To skip the questionnaire, 
+              use the button below to see the description and treatment resources for a positive screen.
+            </Text>
+            <Button >Jump to results</Button>
+          </Card>
           </Card>
         )}
       </VStack>
