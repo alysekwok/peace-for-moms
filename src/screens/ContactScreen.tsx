@@ -95,7 +95,7 @@ export const ContactScreen = () => {
       <Layout>
         <FormControl isRequired>
           <VStack space={5} paddingTop={10}>
-            <Heading textAlign="center">Contact</Heading>
+            <Heading textAlign="center" size="xl">Contact</Heading>
             <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
               <Text>
                 NOTE: This is not an emergency service. For crisis resources,

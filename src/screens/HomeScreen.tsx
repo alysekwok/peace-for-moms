@@ -54,10 +54,10 @@ export const HomeScreen = () => {
         </HStack>
         <Heading textAlign="center" size="xl">Home</Heading>
   
-        <Card padding={7}>
-          <VStack space={8} >
-            <Button variant='big' onPress={() => navigate("Screener")}>Screening Tool</Button>
-            <Button variant='big' onPress={() => navigate("TabRouter", {screen:"Contact"})}>Contact Us</Button>
+        <Card padding={6} margin={7} borderRadius={20}>
+          <VStack space={5} >
+            <Button _text={{fontSize: "md"}} variant='big' onPress={() => navigate("Screener")}>Screening Tools</Button>
+            <Button _text={{fontSize: "md"}} variant='big' onPress={() => navigate("TabRouter", {screen:"Contact"})}>Contact Us</Button>
           </VStack>
         </Card>
         <Image
