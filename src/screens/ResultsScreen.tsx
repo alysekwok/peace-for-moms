@@ -5,6 +5,7 @@ import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useRoute } from "@react-navigation/native";
+import { Hyperlink } from "react-native-hyperlink";
 
 export const ResultsScreen = () => {
   const image = require("../images/peace4moms-1.png");
@@ -33,6 +34,19 @@ export const ResultsScreen = () => {
           justifyContent="center"
         >
           <Text textAlign="center">{route?.params?.result[2]}</Text>
+        </Box>
+        <Box 
+          p="3.5"
+          bg="yellow.100"
+          alignItems="center"
+          borderRadius={30}
+          justifyContent="center"
+        >
+          <Hyperlink linkDefault={true} linkStyle={{color: '#2980b9'}} linkText={(url) => url === route?.params?.result[3] ? 'Click here' : url}>
+            <Text textAlign={"center"}>
+              {route?.params?.result[3]} to view comprehensive screening tool info.
+            </Text>
+          </Hyperlink>
         </Box>
         <Box padding={5} alignItems="center">
           <Text>

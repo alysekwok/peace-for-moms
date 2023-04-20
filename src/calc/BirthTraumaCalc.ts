@@ -1,6 +1,6 @@
 export function BirthTraumaCalc(answers: number[]) {
   const results = diagnosticCriteria(answers);
-  return ["Birth Trauma", "N/A", results.join(" ")];
+  return ["Birth Trauma", "N/A", results.join(" "), 'https://converter.idrsolutions.com/online-converter/output/97a778a7-959c-4dcf-8c2f-bda706f598f0/City-BiTS-scoring-information/index.html?page=1'];
 }
 
 function evaluateStressorCriterion(answers: number[]) {
