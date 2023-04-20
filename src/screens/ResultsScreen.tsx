@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout } from "../components/Layout";
-import { VStack, Heading, Text, Box, Button } from "native-base";
+import { VStack, Heading, Text, Box, Button, Divider } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -34,14 +34,15 @@ export const ResultsScreen = () => {
           justifyContent="center"
         >
           <Text textAlign="center">{route?.params?.result[2]}</Text>
-        </Box>
+        {/* </Box>
         <Box 
           p="3.5"
           bg="yellow.100"
           alignItems="center"
           borderRadius={30}
           justifyContent="center"
-        >
+        > */}
+        <Divider my={3}/>
           <Hyperlink linkDefault={true} linkStyle={{color: '#2980b9'}} linkText={(url) => url === route?.params?.result[3] ? 'Click here' : url}>
             <Text textAlign={"center"}>
               {route?.params?.result[3]} to view scoring information for this screening tool.
@@ -53,7 +54,7 @@ export const ResultsScreen = () => {
             </Text>
           </Hyperlink>
         </Box>
-        <Box padding={5} alignItems="center">
+        <Box padding={2} alignItems="center">
           <Text>
             Disclaimer: The PEACE for Moms mobile application does NOT save your
             screening results. Please screenshot this screen for your records if

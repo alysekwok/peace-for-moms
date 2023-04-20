@@ -8,7 +8,7 @@ export const EmergencyScreen = () => {
   return (
     <Layout>
       <VStack space={5} alignItems="center">
-        <Heading textAlign="center">Emergency Contacts</Heading>
+        <Heading textAlign="center" size="xl">Emergency Contacts</Heading>
         <Box
           p="3.5"
           bg="yellow.100"

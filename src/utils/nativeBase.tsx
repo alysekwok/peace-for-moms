@@ -1,5 +1,6 @@
 import { extendTheme } from "native-base";
 import { useFonts, Alice_400Regular } from "@expo-google-fonts/alice";
+import { baseFontSize } from "native-base/lib/typescript/theme/tools";
 
 const primary = {
   50: "#efe8fc",
@@ -79,7 +80,7 @@ export const theme = extendTheme({
           paddingLeft: 5,
           paddingRight: 5,
           backgroundColor: "primary.400",
-          _pressed: { backgroundColor: "primary.500" },
+          _pressed: { backgroundColor: "primary.700" },
         }),
         ghost: () => ({
           padding: 2,
@@ -96,8 +97,9 @@ export const theme = extendTheme({
           backgroundColor: "primary.400",
           paddingBottom: 4,
           paddingTop: 4,
+          margin: 1,
           _pressed: { backgroundColor: "primary.500" },
-          _text: { color:"white" }
+          _text: { color:"white"},
         })
       },
     },

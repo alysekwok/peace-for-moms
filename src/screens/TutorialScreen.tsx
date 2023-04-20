@@ -33,7 +33,7 @@ export const TutorialScreen = () => {
         >
           <Heading textAlign="center" variant="blurb">
             {" "}
-            2 main functions of the Peace for Moms app
+            Two main functions of the Peace for Moms app
           </Heading>
         </Box>
         <Box alignItems="center" p="7" bg="primary.400" borderRadius={30}>
