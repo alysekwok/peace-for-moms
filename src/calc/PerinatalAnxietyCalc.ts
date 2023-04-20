@@ -7,7 +7,7 @@ export const PerinatalAnxietyCalc = (answers: number[]) => {
       sum += answers[i];
     }
     if (sum > 26) {
-      return [name, sum, positiveResultMessage];
+      return [name, sum, positiveResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-PASS.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
     }
-    return [name, sum, negativeResultMessage];
+    return [name, sum, negativeResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-PASS.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
   };

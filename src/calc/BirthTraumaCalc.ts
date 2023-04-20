@@ -1,6 +1,6 @@
 export function BirthTraumaCalc(answers: number[]) {
   const results = diagnosticCriteria(answers);
-  return ["Birth Trauma", "N/A", results.join(" ")];
+  return ["Birth Trauma", "N/A", results.join(" "), 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-City-Birth-Trauma-Scale.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-ptsd/'];
 }
 
 function evaluateStressorCriterion(answers: number[]) {

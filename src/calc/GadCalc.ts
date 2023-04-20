@@ -11,14 +11,14 @@ export const GadCalc = (answers: number[]) => {
             sum += answers[i];
         }
         if (sum >= 0 && sum <=4) {
-            return [name, sum, minimalAnxiety];
+            return [name, sum, minimalAnxiety, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
         } else if (sum >= 5 && sum <=9) {
-            return [name, sum, mildAnxiety];
+            return [name, sum, mildAnxiety, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
         } else if (sum >= 10 && sum <=14){
-            return [name, sum, moderateAnxiety];
+            return [name, sum, moderateAnxiety, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
         } else if (sum >= 15 && sum <=21){
-            return [name, sum, severeAnxiety];
+            return [name, sum, severeAnxiety, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
         } else {
-            return [name, sum, "No result"]
+            return [name, sum, "No result", 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/']
         }
-    };
+};

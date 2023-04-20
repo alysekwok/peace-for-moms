@@ -8,8 +8,8 @@ export const DepressionCalc = (answers: number[]) => {
         sum += answers[i];
     }; 
     if (sum >= 12) {
-        return [name, sum, positiveResultMessage];
+        return [name, sum, positiveResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-EPDS.pdf', 'https://www.peace4momsga.org/wp-content/uploads/2022/04/Depression-Screening-and-Treatment-for-Clinicians.pdf'];
     } else {
-        return [name, sum, negativeResultMessage];
+        return [name, sum, negativeResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-EPDS.pdf', 'https://www.peace4momsga.org/wp-content/uploads/2022/04/Depression-Screening-and-Treatment-for-Clinicians.pdf'];
     }
 };
