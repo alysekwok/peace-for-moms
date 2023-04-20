@@ -11,14 +11,14 @@ export const GadCalc = (answers: number[]) => {
             sum += answers[i];
         }
         if (sum >= 0 && sum <=4) {
-            return [name, sum, minimalAnxiety, 'https://converter.idrsolutions.com/online-converter/output/255e0a00-abe9-41ca-a426-b2a84cb372d4/GAD-7_Anxiety-updated_0.pdf/index.html?page=1'];
+            return [name, sum, minimalAnxiety, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
         } else if (sum >= 5 && sum <=9) {
-            return [name, sum, mildAnxiety, 'https://converter.idrsolutions.com/online-converter/output/255e0a00-abe9-41ca-a426-b2a84cb372d4/GAD-7_Anxiety-updated_0.pdf/index.html?page=1'];
+            return [name, sum, mildAnxiety, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
         } else if (sum >= 10 && sum <=14){
-            return [name, sum, moderateAnxiety, 'https://converter.idrsolutions.com/online-converter/output/255e0a00-abe9-41ca-a426-b2a84cb372d4/GAD-7_Anxiety-updated_0.pdf/index.html?page=1'];
+            return [name, sum, moderateAnxiety, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
         } else if (sum >= 15 && sum <=21){
-            return [name, sum, severeAnxiety, 'https://converter.idrsolutions.com/online-converter/output/255e0a00-abe9-41ca-a426-b2a84cb372d4/GAD-7_Anxiety-updated_0.pdf/index.html?page=1'];
+            return [name, sum, severeAnxiety, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
         } else {
-            return [name, sum, "No result", 'https://converter.idrsolutions.com/online-converter/output/255e0a00-abe9-41ca-a426-b2a84cb372d4/GAD-7_Anxiety-updated_0.pdf/index.html?page=1']
+            return [name, sum, "No result", 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/']
         }
 };

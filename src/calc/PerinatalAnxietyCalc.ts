@@ -7,7 +7,7 @@ export const PerinatalAnxietyCalc = (answers: number[]) => {
       sum += answers[i];
     }
     if (sum > 26) {
-      return [name, sum, positiveResultMessage, 'https://converter.idrsolutions.com/online-converter/output/805d99ae-c3d2-4b97-8bad-1b8516af162d/PerinatalAnxietyScreeningScaleand%2520Scoring.docx.pdf/index.html?page=1'];
+      return [name, sum, positiveResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-PASS.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
     }
-    return [name, sum, negativeResultMessage, 'https://converter.idrsolutions.com/online-converter/output/805d99ae-c3d2-4b97-8bad-1b8516af162d/PerinatalAnxietyScreeningScaleand%2520Scoring.docx.pdf/index.html?page=1'];
+    return [name, sum, negativeResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-PASS.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-anxiety/'];
   };

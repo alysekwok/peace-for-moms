@@ -8,8 +8,8 @@ export const DepressionCalc = (answers: number[]) => {
         sum += answers[i];
     }; 
     if (sum >= 12) {
-        return [name, sum, positiveResultMessage, 'https://converter.idrsolutions.com/online-converter/output/ba04b50d-50b5-4678-b388-9985d75f13af/Edinburgh_postnatal_depression_scale/index.html?page=1'];
+        return [name, sum, positiveResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-EPDS.pdf', 'https://www.peace4momsga.org/wp-content/uploads/2022/04/Depression-Screening-and-Treatment-for-Clinicians.pdf'];
     } else {
-        return [name, sum, negativeResultMessage, 'https://converter.idrsolutions.com/online-converter/output/ba04b50d-50b5-4678-b388-9985d75f13af/Edinburgh_postnatal_depression_scale/index.html?page=1'];
+        return [name, sum, negativeResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-EPDS.pdf', 'https://www.peace4momsga.org/wp-content/uploads/2022/04/Depression-Screening-and-Treatment-for-Clinicians.pdf'];
     }
 };

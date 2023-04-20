@@ -44,7 +44,12 @@ export const ResultsScreen = () => {
         >
           <Hyperlink linkDefault={true} linkStyle={{color: '#2980b9'}} linkText={(url) => url === route?.params?.result[3] ? 'Click here' : url}>
             <Text textAlign={"center"}>
-              {route?.params?.result[3]} to view comprehensive screening tool info.
+              {route?.params?.result[3]} to view scoring information for this screening tool.
+            </Text>
+          </Hyperlink>
+          <Hyperlink linkDefault={true} linkStyle={{color: '#2980b9'}} linkText={(url) => url === route?.params?.result[4] ? 'Click here' : url}>
+            <Text textAlign={"center"}>
+              {route?.params?.result[4]} to view comprehensive information and treatment options for this disorder.
             </Text>
           </Hyperlink>
         </Box>

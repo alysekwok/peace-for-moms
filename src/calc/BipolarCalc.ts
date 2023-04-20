@@ -7,8 +7,8 @@ export const BipolarCalc = (answers: number[]) => {
     sum += answers[i];
   }
   if (sum >= 7 && answers[13] === 1 && answers[14] >= 2) {
-    return [name, sum, positiveResultMessage, 'https://converter.idrsolutions.com/online-converter/output/7bc8053d-7ed0-423d-ab88-5878e11b7fad/bipolar_screen_/index.html?page=1'];
+    return [name, sum, positiveResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-MDQ.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-bipolar-disorder/'];
   } else {
-    return [name, sum, negativeResultMessage, 'https://converter.idrsolutions.com/online-converter/output/7bc8053d-7ed0-423d-ab88-5878e11b7fad/bipolar_screen_/index.html?page=1'];
+    return [name, sum, negativeResultMessage, 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-MDQ.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-bipolar-disorder/'];
   }
 };
