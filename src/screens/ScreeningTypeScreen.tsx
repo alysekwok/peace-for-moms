@@ -10,12 +10,10 @@ import {
   Center,
   Card,
   Text,
-  Divider,
 } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useValue } from "react-native-reanimated";
 
 export const ScreeningTypeScreen = () => {
   /***************		HOOKS		***************/
