@@ -15,7 +15,6 @@ import { Keyboard,TouchableWithoutFeedback } from "react-native";
 import { Layout } from "../components/Layout";
 import { database} from "../firebase/config";
 import { ref,get } from "firebase/database";
-
 import { useAppSelector } from "../store";
 import { Profile } from "../types/Profile";
 
@@ -44,21 +43,21 @@ export const ProfileScreen = () => {
         <FormControl isRequired>
           <VStack space={5} paddingTop={10}>
             <Heading textAlign="center">Profile Information</Heading>
-            <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
+            <Card style={{ borderRadius: 9, backgroundColor: "#FBF4BB" }}>
               <Text>Name:</Text>
             </Card>
-            <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
+            <Card style={{ borderRadius: 9, backgroundColor: "#FBF4BB" }}>
               <Text>Phone Number:</Text>
             </Card>
             <View>
-              <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
+              <Card style={{ borderRadius: 9, backgroundColor: "#FBF4BB" }}>
                 <Text>Email: {profile.email}</Text>
               </Card>
             </View>
             <Button>View saved diagnoses</Button>
             <VStack space={2}>
               <View style={{ flexDirection: "row" }}>
-                <View style={{ flex: 1 }}></View>
+                <View style={{ flex: 3 }}></View>
               </View>
             </VStack>
           </VStack>
