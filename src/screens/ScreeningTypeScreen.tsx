@@ -10,6 +10,7 @@ import {
   Center,
   Card,
   Text,
+  ScrollView,
 } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
@@ -88,9 +89,11 @@ export const ScreeningTypeScreen = () => {
         >
           Next
         </Button>
+        <ScrollView>
         {service && (
           <Card borderRadius={30}>
             <Card bg={"yellow.100"} alignItems="center" borderRadius={30} >
+            
             <Text textAlign="center" color="black">
               {service ? descriptionMap.get(service) : ""}
             </Text>
@@ -103,7 +106,9 @@ export const ScreeningTypeScreen = () => {
           </Card>
           </Card>
         )}
+        </ScrollView>
       </VStack>
     </Layout>
+
   );
 };
