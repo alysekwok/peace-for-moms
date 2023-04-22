@@ -24,7 +24,6 @@ export const UnauthRouter = () => {
         headerLeft: () => <BackButton />,
       }}
     >
-      {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
       <Stack.Screen
         name="Login"
         component={LoginScreen}

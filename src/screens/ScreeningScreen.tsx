@@ -29,15 +29,11 @@ export const ScreeningScreen = ({ route }) => {
     database,
     `screening_tools/${screeningType}/questions`
   );
-  // const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
-  const [points, setPoints] = useState(0);
-  const [answerStatus, setAnswerStatus] = useState(null);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [answerArray, setAnswerArray] = useState([]);
 
   const { navigate, goBack } = useNavigation();
-  const navigation = useNavigation();
 
   /***************		FUNCTIONS		***************/
 
