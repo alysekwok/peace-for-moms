@@ -11,11 +11,12 @@ import {
 } from "native-base";
 import "firebase/database";
 import React, { useState } from "react";
-import { Keyboard,TouchableWithoutFeedback } from "react-native";
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
+import { logOut } from "../store/slices/AuthSlice";
 import { Layout } from "../components/Layout";
-import { database} from "../firebase/config";
-import { ref,get } from "firebase/database";
-import { useAppSelector } from "../store";
+import { database } from "../firebase/config";
+import { ref, get } from "firebase/database";
+import { useAppDispatch, useAppSelector } from "../store";
 import { Profile } from "../types/Profile";
 
 export const ProfileScreen = () => {
@@ -26,6 +27,7 @@ export const ProfileScreen = () => {
   const [profile, setProfile] = useState<Profile>({});
   const uid = useAppSelector((state) => state.Auth.user).uid;
   const reference = ref(database, `/users/${uid}`);
+  const dispatch = useAppDispatch();
 
   if (!profile) {
     get(reference).then((snapshot) => {
@@ -54,7 +56,7 @@ export const ProfileScreen = () => {
                 <Text>Email: {profile.email}</Text>
               </Card>
             </View>
-            <Button>View saved diagnoses</Button>
+            <Button onPress={() => dispatch(logOut())}>Log out</Button>
             <VStack space={2}>
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 3 }}></View>
