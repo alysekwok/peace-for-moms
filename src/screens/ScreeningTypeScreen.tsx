@@ -22,6 +22,9 @@ export const ScreeningTypeScreen = () => {
   const { navigate } =
     useNavigation<NativeStackNavigationProp<MainRouterParams>>();
   const [service, setService] = useState("");
+
+  /***************		CONSTANTS		***************/
+
   const descriptionMap = new Map<String, String>([
     [
       "bipolar",

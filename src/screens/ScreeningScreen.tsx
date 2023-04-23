@@ -10,6 +10,8 @@ import { PerinatalAnxietyCalc } from "../calc/PerinatalAnxietyCalc";
 import { GadCalc } from "../calc/GadCalc";
 import { DepressionCalc } from "../calc/DepressionCalc";
 import { ProgressBar } from "../components/ProgressBar";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { MainRouterParams } from "../routers/MainRouter";
 
 export type ScreeningScreenProps = {
   screeningType: String;
@@ -33,7 +35,8 @@ export const ScreeningScreen = ({ route }) => {
   const [questions, setQuestions] = useState([]);
   const [answerArray, setAnswerArray] = useState([]);
 
-  const { navigate, goBack } = useNavigation();
+  const { navigate, goBack } =
+    useNavigation<NativeStackNavigationProp<MainRouterParams>>();
 
   /***************		FUNCTIONS		***************/
 
@@ -50,12 +53,9 @@ export const ScreeningScreen = ({ route }) => {
       if (questionNumber + 1 < (questions ? questions.length : 0)) {
         setQuestionNumber(questionNumber + 1);
       } else {
-        navigate(
-          "Results" as never,
-          {
-            result: calculate(answerArray),
-          } as never
-        );
+        navigate("Results", {
+          result: calculate(answerArray),
+        });
       }
     }
   };
