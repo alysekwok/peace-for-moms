@@ -34,7 +34,7 @@ export const ResultsScreen = () => {
           justifyContent="center"
         >
           <Text textAlign="center">{route?.params?.result[2]}</Text>
-        {/* </Box>
+          {/* </Box>
         <Box 
           p="3.5"
           bg="yellow.100"
@@ -42,15 +42,29 @@ export const ResultsScreen = () => {
           borderRadius={30}
           justifyContent="center"
         > */}
-        <Divider my={3}/>
-          <Hyperlink linkDefault={true} linkStyle={{color: '#2980b9'}} linkText={(url) => url === route?.params?.result[3] ? 'Click here' : url}>
+          <Divider my={3} />
+          <Hyperlink
+            linkDefault={true}
+            linkStyle={{ color: "#2980b9" }}
+            linkText={(url) =>
+              url === route?.params?.result[3] ? "Click here" : url
+            }
+          >
             <Text textAlign={"center"}>
-              {route?.params?.result[3]} to view scoring information for this screening tool.
+              {route?.params?.result[3]} to view scoring information for this
+              screening tool.
             </Text>
           </Hyperlink>
-          <Hyperlink linkDefault={true} linkStyle={{color: '#2980b9'}} linkText={(url) => url === route?.params?.result[4] ? 'Click here' : url}>
+          <Hyperlink
+            linkDefault={true}
+            linkStyle={{ color: "#2980b9" }}
+            linkText={(url) =>
+              url === route?.params?.result[4] ? "Click here" : url
+            }
+          >
             <Text textAlign={"center"}>
-              {route?.params?.result[4]} to view comprehensive information and treatment options for this disorder.
+              {route?.params?.result[4]} to view comprehensive information and
+              treatment options for this disorder.
             </Text>
           </Hyperlink>
         </Box>

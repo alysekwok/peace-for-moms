@@ -11,10 +11,10 @@ import {
 } from "native-base";
 import "firebase/database";
 import React, { useState } from "react";
-import { Keyboard,TouchableWithoutFeedback } from "react-native";
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
 import { Layout } from "../components/Layout";
-import { database} from "../firebase/config";
-import { ref,get } from "firebase/database";
+import { database } from "../firebase/config";
+import { ref, get } from "firebase/database";
 import { useAppSelector } from "../store";
 import { Profile } from "../types/Profile";
 

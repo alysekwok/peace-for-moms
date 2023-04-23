@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Layout } from "../components/Layout";
 import { Text, VStack, HStack, Button, Card, Heading } from "native-base";
 import { database } from "../firebase/config";
@@ -106,7 +106,9 @@ export const ScreeningScreen = ({ route }) => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Heading size="xl" pt={3}>Screening</Heading>
+        <Heading size="xl" pt={3}>
+          Screening
+        </Heading>
         <ProgressBar
           color="primary.500"
           backgroundColor="gray.300"
@@ -114,7 +116,7 @@ export const ScreeningScreen = ({ route }) => {
             questions.length > 0 ? questionNumber / questions.length : 0
           }
         />
-        
+
         <VStack flex={1} alignItems="center" space={5}>
           <Card bg="yellow.100" alignItems="center" borderRadius={30}>
             <Text textAlign="center" variant="blurb">

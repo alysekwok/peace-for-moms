@@ -83,7 +83,13 @@ export const ContactScreen = () => {
           `From: ${formData.name}\n-----------------\n${formData.message}`
         ).then(() => {
           console.log("Message sent");
-          setData({...formData, name: '', email: '', subject: '', message: ''});
+          setData({
+            ...formData,
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
         })
       : console.log("Form invalid");
   };
@@ -95,7 +101,9 @@ export const ContactScreen = () => {
       <Layout>
         <FormControl isRequired>
           <VStack space={5} paddingTop={10}>
-            <Heading textAlign="center" size="xl">Contact</Heading>
+            <Heading textAlign="center" size="xl">
+              Contact
+            </Heading>
             <Card style={{ borderRadius: 8, backgroundColor: "#FBF4BB" }}>
               <Text>
                 NOTE: This is not an emergency service. For crisis resources,

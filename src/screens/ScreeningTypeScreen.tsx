@@ -55,7 +55,7 @@ export const ScreeningTypeScreen = () => {
   return (
     <Layout>
       <VStack space={8} alignItems="center" justifyContent="center">
-        <Heading textAlign="center" >What are you screening for?</Heading>
+        <Heading textAlign="center">What are you screening for?</Heading>
         <Center>
           <Box maxW="300">
             <Select
@@ -90,25 +90,26 @@ export const ScreeningTypeScreen = () => {
           Next
         </Button>
         <ScrollView>
-        {service && (
-          <Card borderRadius={30}>
-            <Card bg={"yellow.100"} alignItems="center" borderRadius={30} >
-            
-            <Text textAlign="center" color="black">
-              {service ? descriptionMap.get(service) : ""}
-            </Text>
-          </Card>
-          <Card>
-          <Text textAlign="center" color="black" pb={3}>By clicking the "Next" button on top, you will begin the screening process. To skip the questionnaire, 
-              use the button below to see the description and treatment resources for a positive screen.
-            </Text>
-            <Button >Jump to results</Button>
-          </Card>
-          </Card>
-        )}
+          {service && (
+            <Card borderRadius={30}>
+              <Card bg={"yellow.100"} alignItems="center" borderRadius={30}>
+                <Text textAlign="center" color="black">
+                  {service ? descriptionMap.get(service) : ""}
+                </Text>
+              </Card>
+              <Card>
+                <Text textAlign="center" color="black" pb={3}>
+                  By clicking the "Next" button on top, you will begin the
+                  screening process. To skip the questionnaire, use the button
+                  below to see the description and treatment resources for a
+                  positive screen.
+                </Text>
+                <Button>Jump to results</Button>
+              </Card>
+            </Card>
+          )}
         </ScrollView>
       </VStack>
     </Layout>
-
   );
 };
