@@ -6,7 +6,7 @@ import React from "react";
 import { MainRouterParams } from "../routers/MainRouter";
 
 export const BackButton = () => {
-  const { navigate, goBack } =
+  const {goBack } =
     useNavigation<NativeStackNavigationProp<MainRouterParams>>();
   return (
     <IconButton
