@@ -15,6 +15,11 @@ import {
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { BipolarCalc } from "../calc/BipolarCalc";
+import { DepressionCalc } from "../calc/DepressionCalc";
+import { BirthTraumaCalc } from "../calc/BirthTraumaCalc";
+import { GadCalc } from "../calc/GadCalc";
+import { PerinatalAnxietyCalc } from "../calc/PerinatalAnxietyCalc";
 
 export const ScreeningTypeScreen = () => {
   /***************		HOOKS		***************/
@@ -22,6 +27,9 @@ export const ScreeningTypeScreen = () => {
   const { navigate } =
     useNavigation<NativeStackNavigationProp<MainRouterParams>>();
   const [service, setService] = useState("");
+
+  /***************		CONSTANTS		***************/
+
   const descriptionMap = new Map<String, String>([
     [
       "bipolar",
@@ -51,11 +59,28 @@ export const ScreeningTypeScreen = () => {
     setService(itemValue);
   };
 
+  const calculate = (service) => {
+    switch (service) {
+      case "bipolar":
+        return BipolarCalc([]);
+      case "depression":
+        return DepressionCalc([]);
+      case "birth_trauma":
+        return BirthTraumaCalc([]);
+      case "GAD_anxiety":
+        return GadCalc([]);
+      case "perinatal_anxiety":
+        return PerinatalAnxietyCalc([]);
+      default:
+        return BipolarCalc([]);
+    }
+  };
+
   /***************		JSX		***************/
   return (
     <Layout>
       <VStack space={8} alignItems="center" justifyContent="center">
-        <Heading textAlign="center" >What are you screening for?</Heading>
+        <Heading textAlign="center">What are you screening for?</Heading>
         <Center>
           <Box maxW="300">
             <Select
@@ -90,25 +115,28 @@ export const ScreeningTypeScreen = () => {
           Next
         </Button>
         <ScrollView>
-        {service && (
-          <Card borderRadius={30}>
-            <Card bg={"yellow.100"} alignItems="center" borderRadius={30} >
-            
-            <Text textAlign="center" color="black">
-              {service ? descriptionMap.get(service) : ""}
-            </Text>
-          </Card>
-          <Card>
-          <Text textAlign="center" color="black" pb={3}>By clicking the "Next" button on top, you will begin the screening process. To skip the questionnaire, 
-              use the button below to see the description and treatment resources for a positive screen.
-            </Text>
-            <Button >Jump to results</Button>
-          </Card>
-          </Card>
-        )}
+          {service && (
+            <Card borderRadius={30}>
+              <Card bg={"yellow.100"} alignItems="center" borderRadius={30}>
+                <Text textAlign="center" color="black">
+                  {service ? descriptionMap.get(service) : ""}
+                </Text>
+              </Card>
+              <Card>
+                <Text textAlign="center" color="black" pb={3}>
+                  By clicking the "Next" button on top, you will begin the
+                  screening process. To skip the questionnaire, use the button
+                  below to see the description and treatment resources for a
+                  positive screen.
+                </Text>
+                <Button onPress={() => navigate("Results", { result: calculate(service) })}>
+                  Jump to results
+                </Button>
+              </Card>
+            </Card>
+          )}
         </ScrollView>
       </VStack>
     </Layout>
-
   );
 };

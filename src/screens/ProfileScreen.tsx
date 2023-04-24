@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   Card,
   Heading,
@@ -24,7 +23,12 @@ export const ProfileScreen = () => {
 
   const image = require("../images/p4m-profile.png");
 
-  const [profile, setProfile] = useState<Profile>({});
+  const [profile, setProfile] = useState<Profile>({
+    email: "",
+    first_name: "",
+    last_name: "",
+    phone_number: "",
+  });
   const uid = useAppSelector((state) => state.Auth.user).uid;
   const reference = ref(database, `/users/${uid}`);
   const dispatch = useAppDispatch();
