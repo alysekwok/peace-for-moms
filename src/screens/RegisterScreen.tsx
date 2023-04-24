@@ -14,7 +14,10 @@ import { auth, database } from "../firebase/config";
 import { Platform, TextInput } from "react-native";
 import { useAppDispatch } from "../store";
 import { setAuthState } from "../store/slices/AuthSlice";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  EmailAuthCredential,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { CheckBox } from "../components/Checkbox";
 import { ref, set } from "firebase/database";
 import { Profile } from "../types/Profile";
@@ -27,15 +30,32 @@ export function RegisterScreen() {
   const [licensed, setlicensed] = useState(false);
   const [confirmationPassword, setConfirmationPassword] = useState("");
   const [errorCode, setErrorCode] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const image = require("../images/p4m_logo.png");
 
   const passwordInputRef = useRef<TextInput>();
+  const confirmPasswordInputRef = useRef<TextInput>();
+  const nameInputRef = useRef<TextInput>();
+  const phoneInputRef = useRef<TextInput>();
+  const emailInputRef = useRef<TextInput>();
+
   const dispatch = useAppDispatch();
 
   /***************		FUNCTIONS		***************/
 
   const handleEmailChange = (newEmail) => {
     setEmail(newEmail);
+    setErrorCode("");
+  };
+
+  const handleNameChange = (newName) => {
+    setName(newName);
+    setErrorCode("");
+  };
+
+  const handlePhoneChange = (newPhone) => {
+    setPhone(newPhone);
     setErrorCode("");
   };
 
@@ -48,6 +68,9 @@ export function RegisterScreen() {
       if (password != confirmationPassword) {
         setErrorCode("Your passwords don't match");
         return;
+      } else if (name === "") {
+        setErrorCode("You must enter your name");
+        return;
       } else {
         createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
@@ -55,9 +78,8 @@ export function RegisterScreen() {
             dispatch(setAuthState({ user: user, isAuthenticated: true }));
             createProfile(user.uid, {
               email: user.email,
-              first_name: "",
-              last_name: "",
-              phone_number: "",
+              name: name,
+              phone_number: phone,
             });
           })
           .catch((error) => alert(error.message));
@@ -93,9 +115,24 @@ export function RegisterScreen() {
                 Register
               </Text>
             </HStack>
-            <Input placeholder="Name" />
-            <Input placeholder="Phone Number" />
             <Input
+              ref={nameInputRef}
+              placeholder="Name"
+              onChangeText={handleNameChange}
+              onSubmitEditing={() => {
+                phoneInputRef.current.focus();
+              }}
+            />
+            <Input
+              ref={phoneInputRef}
+              placeholder="Phone Number (Optional)"
+              onChangeText={handlePhoneChange}
+              onSubmitEditing={() => {
+                emailInputRef.current.focus();
+              }}
+            />
+            <Input
+              ref={emailInputRef}
               placeholder="Email"
               onChangeText={handleEmailChange}
               onSubmitEditing={() => {
@@ -103,16 +140,17 @@ export function RegisterScreen() {
               }}
             />
             <Input
+              ref={passwordInputRef}
               placeholder="Password"
               value={password}
               secureTextEntry
               onChangeText={setPassword}
               onSubmitEditing={() => {
-                passwordInputRef.current.focus();
+                confirmPasswordInputRef.current.focus();
               }}
             />
             <Input
-              ref={passwordInputRef}
+              ref={confirmPasswordInputRef}
               placeholder="Confirm Password"
               secureTextEntry
               value={confirmationPassword}

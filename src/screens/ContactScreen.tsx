@@ -78,7 +78,7 @@ export const ContactScreen = () => {
   const onSubmit = () => {
     validate()
       ? sendEmail(
-          "seohyunh284@gmail.com",
+          "peace4moms@emory.edu",
           `${formData.subject}`,
           `From: ${formData.name}\n-----------------\n${formData.message}`
         ).then(() => {
