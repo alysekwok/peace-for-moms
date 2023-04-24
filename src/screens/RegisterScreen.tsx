@@ -9,6 +9,8 @@ import {
   VStack,
   HStack,
   KeyboardAvoidingView,
+  Link,
+  Heading,
 } from "native-base";
 import { auth, database } from "../firebase/config";
 import { Platform, TextInput } from "react-native";
@@ -111,10 +113,18 @@ export function RegisterScreen() {
         <Card>
           <VStack space={3}>
             <HStack space={3} justifyContent="space-between">
-              <Text color="black" font-size={5}>
+              <Heading color="black">
                 Register
-              </Text>
+              </Heading>
             </HStack>
+            <Text>
+              If you have not registered through the PEACE for Moms website,
+              please do so{" "}
+              <Link href="https://redcap-neuro.emory.edu/surveys/?s=T89FED9DEM">
+                here
+              </Link>{" "}
+              before registering for the app
+            </Text>
             <Input
               ref={nameInputRef}
               placeholder="Name"
