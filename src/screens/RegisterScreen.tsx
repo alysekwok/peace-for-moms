@@ -93,6 +93,8 @@ export function RegisterScreen() {
                 Register
               </Text>
             </HStack>
+            <Input placeholder="Name" />
+            <Input placeholder="Phone Number" />
             <Input
               placeholder="Email"
               onChangeText={handleEmailChange}
