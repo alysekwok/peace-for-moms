@@ -25,8 +25,7 @@ export const ResultsScreen = ({ route }) => {
         <Heading padding={2} textAlign="center">
           {route?.params?.result[0]}
         </Heading>
-
-        <Text>Your score: {result[1]}</Text>
+        {result[1] != null && <Text>Your score: {result[1]}</Text>}
         <Box
           p="3.5"
           bg="yellow.100"
@@ -34,7 +33,7 @@ export const ResultsScreen = ({ route }) => {
           borderRadius={30}
           justifyContent="center"
         >
-          <Text textAlign="center">{result[2]}</Text>
+          {result[2] != null && <Text textAlign="center">{result[2]}</Text>}
           <Divider my={3} />
           <Hyperlink
             linkDefault={true}

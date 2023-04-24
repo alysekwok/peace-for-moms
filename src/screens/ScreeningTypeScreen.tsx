@@ -15,6 +15,11 @@ import {
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { BipolarCalc } from "../calc/BipolarCalc";
+import { DepressionCalc } from "../calc/DepressionCalc";
+import { BirthTraumaCalc } from "../calc/BirthTraumaCalc";
+import { GadCalc } from "../calc/GadCalc";
+import { PerinatalAnxietyCalc } from "../calc/PerinatalAnxietyCalc";
 
 export const ScreeningTypeScreen = () => {
   /***************		HOOKS		***************/
@@ -52,6 +57,23 @@ export const ScreeningTypeScreen = () => {
 
   const handleSelect = (itemValue) => {
     setService(itemValue);
+  };
+
+  const calculate = (service) => {
+    switch (service) {
+      case "bipolar":
+        return BipolarCalc([]);
+      case "depression":
+        return DepressionCalc([]);
+      case "birth_trauma":
+        return BirthTraumaCalc([]);
+      case "GAD_anxiety":
+        return GadCalc([]);
+      case "perinatal_anxiety":
+        return PerinatalAnxietyCalc([]);
+      default:
+        return BipolarCalc([]);
+    }
   };
 
   /***************		JSX		***************/
@@ -107,7 +129,9 @@ export const ScreeningTypeScreen = () => {
                   below to see the description and treatment resources for a
                   positive screen.
                 </Text>
-                <Button>Jump to results</Button>
+                <Button onPress={() => navigate("Results", { result: calculate(service) })}>
+                  Jump to results
+                </Button>
               </Card>
             </Card>
           )}
