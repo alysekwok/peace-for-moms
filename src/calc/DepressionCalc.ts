@@ -10,8 +10,8 @@ export const DepressionCalc = (answers: number[]) => {
       name,
       null,
       positiveResultMessage,
-      "https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-MDQ.pdf",
-      "https://www.peace4momsga.org/for-professionals/professionals-bipolar-disorder/",
+      "https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-EPDS.pdf",
+      "https://www.peace4momsga.org/wp-content/uploads/2022/04/Depression-Screening-and-Treatment-for-Clinicians.pdf",
     ];
   }
   let sum = 0;

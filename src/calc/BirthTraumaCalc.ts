@@ -4,8 +4,8 @@ export function BirthTraumaCalc(answers: number[]) {
       "Birth Trauma",
       null,
       null,
-      "https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-MDQ.pdf",
-      "https://www.peace4momsga.org/for-professionals/professionals-bipolar-disorder/",
+      "https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-City-Birth-Trauma-Scale.pdf",
+      "https://www.peace4momsga.org/for-professionals/professionals-ptsd/",
     ];
   }
   const results = diagnosticCriteria(answers);

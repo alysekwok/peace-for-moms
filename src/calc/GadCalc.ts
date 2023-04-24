@@ -10,8 +10,8 @@ export const GadCalc = (answers: number[]) => {
       name,
       null,
       severeAnxiety,
-      "https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-MDQ.pdf",
-      "https://www.peace4momsga.org/for-professionals/professionals-bipolar-disorder/",
+      "https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-GAD-7.pdf",
+      "https://www.peace4momsga.org/for-professionals/professionals-anxiety/",
     ];
   }
   let sum = 0;
