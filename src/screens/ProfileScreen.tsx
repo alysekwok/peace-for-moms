@@ -25,15 +25,14 @@ export const ProfileScreen = () => {
 
   const [profile, setProfile] = useState<Profile>({
     email: "",
-    first_name: "",
-    last_name: "",
+    name: "",
     phone_number: "",
   });
   const uid = useAppSelector((state) => state.Auth.user).uid;
   const reference = ref(database, `/users/${uid}`);
   const dispatch = useAppDispatch();
 
-  if (!profile) {
+  if (profile.email === "") {
     get(reference).then((snapshot) => {
       if (snapshot.exists()) {
         setProfile(snapshot.val());
@@ -50,10 +49,10 @@ export const ProfileScreen = () => {
           <VStack space={5} paddingTop={10}>
             <Heading textAlign="center">Profile Information</Heading>
             <Card style={{ borderRadius: 9, backgroundColor: "#FBF4BB" }}>
-              <Text>Name:</Text>
+              <Text>Name: {profile.name}</Text>
             </Card>
             <Card style={{ borderRadius: 9, backgroundColor: "#FBF4BB" }}>
-              <Text>Phone Number:</Text>
+              <Text>Phone Number: {profile.phone_number}</Text>
             </Card>
             <View>
               <Card style={{ borderRadius: 9, backgroundColor: "#FBF4BB" }}>
