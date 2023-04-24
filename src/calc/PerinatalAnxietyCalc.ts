@@ -8,7 +8,7 @@ export const PerinatalAnxietyCalc = (answers: number[]) => {
     return [
       name,
       null,
-      null,
+      positiveResultMessage,
       "https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-MDQ.pdf",
       "https://www.peace4momsga.org/for-professionals/professionals-bipolar-disorder/",
     ];
