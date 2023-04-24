@@ -1,6 +1,21 @@
 export function BirthTraumaCalc(answers: number[]) {
+  if (answers.length == 0) {
+    return [
+      "Birth Trauma",
+      null,
+      null,
+      "https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-MDQ.pdf",
+      "https://www.peace4momsga.org/for-professionals/professionals-bipolar-disorder/",
+    ];
+  }
   const results = diagnosticCriteria(answers);
-  return ["Birth Trauma", "N/A", results.join(" "), 'https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-City-Birth-Trauma-Scale.pdf', 'https://www.peace4momsga.org/for-professionals/professionals-ptsd/'];
+  return [
+    "Birth Trauma",
+    "N/A",
+    results.join(" "),
+    "https://www.peace4momsga.org/wp-content/uploads/2022/04/SCORING-City-Birth-Trauma-Scale.pdf",
+    "https://www.peace4momsga.org/for-professionals/professionals-ptsd/",
+  ];
 }
 
 function evaluateStressorCriterion(answers: number[]) {

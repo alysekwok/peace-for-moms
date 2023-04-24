@@ -1,13 +1,6 @@
 import React from "react";
 import { Layout } from "../components/Layout";
-import {
-  Text,
-  VStack,
-  Heading,
-  Box,
-  Divider,
-  Link,
-} from "native-base";
+import { Text, VStack, Heading, Box, Divider, Link } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -23,7 +16,6 @@ export const TutorialScreen = () => {
   return (
     <Layout paddingTop={7}>
       <VStack space={5} alignItems="center" paddingBottom={20}>
-  
         <Box
           p="3.5"
           bg="yellow.100"
@@ -52,10 +44,13 @@ export const TutorialScreen = () => {
           </Text>
           <Text variant="contrastBody">
             Select "Contact Us" on the Home page or after receiving a diagnosis
-            for information to reach a Peace for Moms professional directly, or click <Link onPress={() => navigate("TabRouter", { screen: "Contact" })}>here</Link>
+            for information to reach a Peace for Moms professional directly, or
+            click{" "}
+            <Link onPress={() => navigate("TabRouter", { screen: "Contact" })}>
+              here
+            </Link>
           </Text>
         </Box>
-    
       </VStack>
     </Layout>
   );

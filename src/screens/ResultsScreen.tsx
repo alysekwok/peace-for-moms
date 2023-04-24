@@ -4,17 +4,18 @@ import { VStack, Heading, Text, Box, Button, Divider } from "native-base";
 import { MainRouterParams } from "../routers/MainRouter";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useRoute } from "@react-navigation/native";
 import { Hyperlink } from "react-native-hyperlink";
 
-export const ResultsScreen = () => {
-  const image = require("../images/peace4moms-1.png");
+export type ResultsScreenProps = {
+  result: (string | number)[];
+};
+
+export const ResultsScreen = ({ route }) => {
   /***************		HOOKS		***************/
 
   const { navigate } =
     useNavigation<NativeStackNavigationProp<MainRouterParams>>();
-  const [service, setService] = React.useState("");
-  const route = useRoute();
+  const { result } = route.params;
 
   /***************		JSX		***************/
 
@@ -24,8 +25,7 @@ export const ResultsScreen = () => {
         <Heading padding={2} textAlign="center">
           {route?.params?.result[0]}
         </Heading>
-
-        <Text>Your score: {route?.params?.result[1]}</Text>
+        {result[1] != null && <Text>Your score: {result[1]}</Text>}
         <Box
           p="3.5"
           bg="yellow.100"
@@ -33,24 +33,25 @@ export const ResultsScreen = () => {
           borderRadius={30}
           justifyContent="center"
         >
-          <Text textAlign="center">{route?.params?.result[2]}</Text>
-        {/* </Box>
-        <Box 
-          p="3.5"
-          bg="yellow.100"
-          alignItems="center"
-          borderRadius={30}
-          justifyContent="center"
-        > */}
-        <Divider my={3}/>
-          <Hyperlink linkDefault={true} linkStyle={{color: '#2980b9'}} linkText={(url) => url === route?.params?.result[3] ? 'Click here' : url}>
+          {result[2] != null && <Text textAlign="center">{result[2]}</Text>}
+          <Divider my={3} />
+          <Hyperlink
+            linkDefault={true}
+            linkStyle={{ color: "#2980b9" }}
+            linkText={(url) => (url === result[3] ? "Click here" : url)}
+          >
             <Text textAlign={"center"}>
-              {route?.params?.result[3]} to view scoring information for this screening tool.
+              {result[3]} to view scoring information for this screening tool.
             </Text>
           </Hyperlink>
-          <Hyperlink linkDefault={true} linkStyle={{color: '#2980b9'}} linkText={(url) => url === route?.params?.result[4] ? 'Click here' : url}>
+          <Hyperlink
+            linkDefault={true}
+            linkStyle={{ color: "#2980b9" }}
+            linkText={(url) => (url === result[4] ? "Click here" : url)}
+          >
             <Text textAlign={"center"}>
-              {route?.params?.result[4]} to view comprehensive information and treatment options for this disorder.
+              {result[4]} to view comprehensive information and treatment
+              options for this disorder.
             </Text>
           </Hyperlink>
         </Box>
@@ -61,17 +62,9 @@ export const ResultsScreen = () => {
             you would like to keep the results.
           </Text>
         </Box>
-        <Button onPress={() => navigate("Home")}>Go to home</Button>
-
-        {/* to be fixed: */}
-        {/* <Image
-          alignSelf="center"
-          source={image}
-          resizeMode="contain"
-          alt="P4M image"
-          width={200}
-          height={500}
-        /> */}
+        <Button onPress={() => navigate("TabRouter", { screen: "Home" })}>
+          Go to home
+        </Button>
       </VStack>
     </Layout>
   );

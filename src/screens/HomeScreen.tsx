@@ -41,7 +41,7 @@ export const HomeScreen = () => {
             />
             <Text textAlign="center">Log Out</Text>
           </Pressable>
-          
+
           <Pressable alignItems="center" onPress={() => navigate("Tutorial")}>
             <Icon
               name="help-circle-outline"
@@ -52,12 +52,26 @@ export const HomeScreen = () => {
             <Text textAlign="center">Tutorial</Text>
           </Pressable>
         </HStack>
-        <Heading textAlign="center" size="xl">Home</Heading>
-  
+        <Heading textAlign="center" size="xl">
+          Home
+        </Heading>
+
         <Card padding={6} margin={7} borderRadius={20}>
-          <VStack space={5} >
-            <Button _text={{fontSize: "md"}} variant='big' onPress={() => navigate("Screener")}>Screening Tools</Button>
-            <Button _text={{fontSize: "md"}} variant='big' onPress={() => navigate("TabRouter", {screen:"Contact"})}>Contact Us</Button>
+          <VStack space={5}>
+            <Button
+              _text={{ fontSize: "md" }}
+              variant="big"
+              onPress={() => navigate("Screener")}
+            >
+              Screening Tools
+            </Button>
+            <Button
+              _text={{ fontSize: "md" }}
+              variant="big"
+              onPress={() => navigate("TabRouter", { screen: "Contact" })}
+            >
+              Contact Us
+            </Button>
           </VStack>
         </Card>
         <Image
