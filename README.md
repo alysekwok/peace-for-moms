@@ -5,10 +5,12 @@ A mobile application that helps healthcare professionals treat perinatal patient
 ## Installation Guide
 #### Prerequisites
 To simulate the app, you must have Expo Go installed: https://docs.expo.dev/get-started/installation/
-For Mac:
+
+##### For Mac:
 - Install Homebrew: https://brew.sh/
 - Using Homebrew, install yarn (our package manager): https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable
-For Windows:
+
+##### For Windows:
 - Install node: https://nodejs.org/en
 - Install yarn (our package manager): https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
 
