@@ -16,6 +16,9 @@ For Windows:
 - In your terminal, run `git clone https://github.gatech.edu/JAADES/p4m.git`
 
 #### Run Instructions
+- In the terminal, run yarn install. This only needs to be done when you first clone the repository.
+- To run the application on your simulator, use yarn run in the terminal, and when the build is complete, choose the command for your operating system. The simulator should start. 
+- To run the application on your mobile device, make sure you have the Expo Go app installed on your device. Use yarn run in the terminal, and a QR code should be generated. Scan the QR code on your mobile device, and the link should redirect you to the Expo Go application. 
 
 ## Release Notes
 
